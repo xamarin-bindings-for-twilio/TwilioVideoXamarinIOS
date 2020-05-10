@@ -3,6 +3,7 @@ using System.Runtime.InteropServices;
 using CoreGraphics;
 using ObjCRuntime;
 using CoreVideo;
+using Foundation;
 
 namespace Twilio.Video.iOS
 {
@@ -12,38 +13,45 @@ namespace Twilio.Video.iOS
 	public static class CFunctions
 	{
 		// extern void TVIAudioDeviceFormatChanged (TVIAudioDeviceContext _Nonnull context) __attribute__((swift_name("AudioDeviceFormatChanged(context:)")));
-		[DllImport ("__Internal")]
+		//[DllImport ("__Internal")]
 		// [Verify (PlatformInvoke)]
+		[Export ("TVIAudioDeviceFormatChanged")]
 		static extern unsafe void TVIAudioDeviceFormatChanged (void* context);
 
 		// extern void TVIAudioDeviceWriteCaptureData (TVIAudioDeviceContext _Nonnull context, int8_t * _Nonnull data, size_t sizeInBytes) __attribute__((swift_name("AudioDeviceWriteCaptureData(context:data:sizeInBytes:)")));
-		[DllImport ("__Internal")]
+		//[DllImport("__Internal")]
 		// [Verify (PlatformInvoke)]
+		[Export("TVIAudioDeviceWriteCaptureData")]
 		static extern unsafe void TVIAudioDeviceWriteCaptureData (void* context, sbyte* data, nuint sizeInBytes);
 
 		// extern void TVIAudioDeviceReadRenderData (TVIAudioDeviceContext _Nonnull context, int8_t * _Nonnull data, size_t sizeInBytes) __attribute__((swift_name("AudioDeviceReadRenderData(context:data:sizeInBytes:)")));
-		[DllImport ("__Internal")]
+		//[DllImport ("__Internal")]
 		// [Verify (PlatformInvoke)]
+		[Export("TVIAudioDeviceReadRenderData")]
 		static extern unsafe void TVIAudioDeviceReadRenderData (void* context, sbyte* data, nuint sizeInBytes);
 
 		// extern void TVIAudioDeviceExecuteWorkerBlock (TVIAudioDeviceContext _Nonnull context, TVIAudioDeviceWorkerBlock _Nonnull block) __attribute__((swift_name("AudioDeviceExecuteWorkerBlock(context:block:)")));
-		[DllImport ("__Internal")]
+		//[DllImport ("__Internal")]
 		// [Verify (PlatformInvoke)]
+		[Export("TVIAudioDeviceExecuteWorkerBlock")]
 		static extern unsafe void TVIAudioDeviceExecuteWorkerBlock (void* context, TVIAudioDeviceWorkerBlock block);
 
 		// CGAffineTransform TVIVideoOrientationMakeTransform (TVIVideoOrientation orientation) __attribute__((swift_name("VideoOrientation.makeTransform(orientation:)")));
-		[DllImport ("__Internal")]
+		//[DllImport ("__Internal")]
 		// [Verify (PlatformInvoke)]
+		[Export("TVIVideoOrientationMakeTransform")]
 		static extern CGAffineTransform TVIVideoOrientationMakeTransform (TVIVideoOrientation orientation);
 
 		// BOOL TVIVideoOrientationIsRotated (TVIVideoOrientation orientation) __attribute__((swift_name("VideoOrientation.isRotated(orientation:)")));
-		[DllImport ("__Internal")]
+		//[DllImport ("__Internal")]
 		// [Verify (PlatformInvoke)]
+		[Export("TVIVideoOrientationIsRotated")]
 		static extern bool TVIVideoOrientationIsRotated (TVIVideoOrientation orientation);
 
 		// BOOL TVIVideoOrientationIsValid (TVIVideoOrientation orientation) __attribute__((swift_name("VideoOrientation.isValid(orientation:)")));
-		[DllImport ("__Internal")]
+		//[DllImport ("__Internal")]
 		// [Verify (PlatformInvoke)]
+		[Export("TVIVideoOrientationIsValid")]
 		static extern bool TVIVideoOrientationIsValid (TVIVideoOrientation orientation);
 	}
 
