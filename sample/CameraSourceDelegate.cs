@@ -1,7 +1,6 @@
 ﻿using System;
 using AVFoundation;
 using Foundation;
-using LSP.Mobile.Infrastructure.Common.Log;
 using Twilio.Video.iOS;
 
 namespace LSP.Mobile.iOS.ViewController.Delegates.Video
@@ -45,7 +44,7 @@ namespace LSP.Mobile.iOS.ViewController.Delegates.Video
         [Export("cameraSourceInterruptionEnded:")]
         public override void CameraSourceInterruptionEnded(TVICameraSource source)
         {
-            LogHelper.Call(nameof(CameraSourceDelegate), nameof(CameraSourceInterruptionEnded));
+            Console.WriteLine("CameraSourceInterruptionEnded");
             CameraSourceInterruptionEndedEvent?.Invoke(this, source);
         }
 
@@ -53,7 +52,7 @@ namespace LSP.Mobile.iOS.ViewController.Delegates.Video
         [Export("cameraSourceWasInterrupted:reason:")]
         public override void CameraSourceWasInterrupted(TVICameraSource source, AVCaptureSessionInterruptionReason reason)
         {
-            LogHelper.Call(nameof(CameraSourceDelegate), nameof(CameraSourceWasInterrupted));
+            Console.WriteLine("CameraSourceWasInterrupted");
             CameraSourceWasInterruptedEvent?.Invoke(this, (source, reason));
         }
 
@@ -61,7 +60,7 @@ namespace LSP.Mobile.iOS.ViewController.Delegates.Video
         [Export("cameraSource:didFailWithError:")]
         public override void CameraSource(TVICameraSource source, NSError error)
         {
-            LogHelper.Call(nameof(CameraSourceDelegate), nameof(CameraSource));
+            Console.WriteLine("CameraSource");
             CameraSourceEvent?.Invoke(this, (source, error));
         }
 
