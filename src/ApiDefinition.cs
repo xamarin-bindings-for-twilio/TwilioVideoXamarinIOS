@@ -449,7 +449,7 @@ namespace Twilio.Video.iOS
 		// @required -(void)renderSample:(CMSampleBufferRef)audioSample;
 		[Abstract]
 		[Export ("renderSample:")]
-		void RenderSample (CMSampleBuffer audioSample);
+		unsafe void RenderSample (CMSampleBuffer audioSample);
 	}
 
 	// @interface TVITrack : NSObject
@@ -1489,9 +1489,9 @@ namespace Twilio.Video.iOS
 		TVILocalAudioTrack TrackWithOptions ([NullAllowed] TVIAudioOptions options, bool enabled, [NullAllowed] string name);
 	}
 
-	//[Static]
-	//[Verify (ConstantsInterfaceAssociation)]
-	partial interface Constants
+    //[Static]
+    //[Verify (ConstantsInterfaceAssociation)]
+    partial interface Constants
 	{
 		// extern TVITrackPriority  _Nonnull const TVITrackPriorityLow __attribute__((availability(ios, introduced=11.0)));
 		[Introduced (PlatformName.iOS, 11, 0)]
@@ -2107,11 +2107,11 @@ namespace Twilio.Video.iOS
 
 		// @optional -(void)remoteParticipant:(TVIRemoteParticipant * _Nonnull)participant didEnableAudioTrack:(TVIRemoteAudioTrackPublication * _Nonnull)publication __attribute__((swift_name("remoteParticipantDidEnableAudioTrack(participant:publication:)")));
 		[Export ("remoteParticipant:didEnableAudioTrack:")]
-		void RemoteParticipantDidEnableAudioTrack(TVIRemoteParticipant participant, TVIRemoteAudioTrackPublication publication);
+		void RemoteParticipantDidEnableAudioTrack (TVIRemoteParticipant participant, TVIRemoteAudioTrackPublication publication);
 
 		// @optional -(void)remoteParticipant:(TVIRemoteParticipant * _Nonnull)participant didDisableAudioTrack:(TVIRemoteAudioTrackPublication * _Nonnull)publication __attribute__((swift_name("remoteParticipantDidDisableAudioTrack(participant:publication:)")));
 		[Export ("remoteParticipant:didDisableAudioTrack:")]
-		void RemoteParticipantDidDisableAudioTrack(TVIRemoteParticipant participant, TVIRemoteAudioTrackPublication publication);
+		void RemoteParticipantDidDisableAudioTrack (TVIRemoteParticipant participant, TVIRemoteAudioTrackPublication publication);
 
 		// @optional -(void)didSubscribeToVideoTrack:(TVIRemoteVideoTrack * _Nonnull)videoTrack publication:(TVIRemoteVideoTrackPublication * _Nonnull)publication forParticipant:(TVIRemoteParticipant * _Nonnull)participant __attribute__((swift_name("didSubscribeToVideoTrack(videoTrack:publication:participant:)")));
 		[Export ("didSubscribeToVideoTrack:publication:forParticipant:")]
@@ -2155,7 +2155,7 @@ namespace Twilio.Video.iOS
 
 		// @optional -(void)remoteParticipant:(TVIRemoteParticipant * _Nonnull)participant switchedOffVideoTrack:(TVIRemoteVideoTrack * _Nonnull)track __attribute__((swift_name("remoteParticipantSwitchedOffVideoTrack(participant:track:)")));
 		[Export ("remoteParticipant:switchedOffVideoTrack:")]
-		void RemoteParticipantSwitchedOffVideoTrack(TVIRemoteParticipant participant, TVIRemoteVideoTrack track);
+		void RemoteParticipantSwitchedOffVideoTrack (TVIRemoteParticipant participant, TVIRemoteVideoTrack track);
 
 		// @optional -(void)remoteParticipant:(TVIRemoteParticipant * _Nonnull)participant switchedOnVideoTrack:(TVIRemoteVideoTrack * _Nonnull)track __attribute__((swift_name("remoteParticipantSwitchedOnVideoTrack(participant:track:)")));
 		[Export ("remoteParticipant:switchedOnVideoTrack:")]
@@ -2638,8 +2638,12 @@ namespace Twilio.Video.iOS
 	{
 		// @property (nonatomic, strong, class) id<TVIAudioDevice> _Nonnull audioDevice;
 		[Static]
-		[Export ("audioDevice", ArgumentSemantic.Strong)]
-		TVIAudioDevice AudioDevice { get; set; }
+		[Export("audioDevice", ArgumentSemantic.Strong)]
+		TVIAudioDevice GetAudioDevice();
+
+		[Static]
+		[Export("setAudioDevice:", ArgumentSemantic.Strong)]
+		void SetAudioDevice(TVIAudioDevice audioDevice);
 
 		// +(TVIRoom * _Nonnull)connectWithOptions:(TVIConnectOptions * _Nonnull)options delegate:(id<TVIRoomDelegate> _Nullable)delegate __attribute__((swift_name("connect(options:delegate:)")));
 		[Static]
