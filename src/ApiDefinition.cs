@@ -98,16 +98,8 @@ namespace Twilio.Video.iOS
 	}
 
 	// @protocol TVIVideoSink <NSObject>
-	/*
-  Check whether adding [Model] to this declaration is appropriate.
-  [Model] is used to generate a C# class that implements this protocol,
-  and might be useful for protocols that consumers are supposed to implement,
-  since consumers can subclass the generated class instead of implementing
-  the generated interface. If consumers are not supposed to implement this
-  protocol, then [Model] is redundant and will generate code that will never
-  be used.
-*/[Introduced (PlatformName.iOS, 11, 0)]
-	[Protocol]
+	[Introduced (PlatformName.iOS, 11, 0)]
+	[Protocol, Model]
 	[BaseType (typeof(NSObject))]
 	interface TVIVideoSink
 	{
@@ -128,16 +120,8 @@ namespace Twilio.Video.iOS
 	}
 
 	// @protocol TVIVideoSource <NSObject>
-	/*
-  Check whether adding [Model] to this declaration is appropriate.
-  [Model] is used to generate a C# class that implements this protocol,
-  and might be useful for protocols that consumers are supposed to implement,
-  since consumers can subclass the generated class instead of implementing
-  the generated interface. If consumers are not supposed to implement this
-  protocol, then [Model] is redundant and will generate code that will never
-  be used.
-*/[Introduced (PlatformName.iOS, 11, 0)]
-	[Protocol]
+	[Introduced (PlatformName.iOS, 11, 0)]
+	[Protocol, Model]
 	[BaseType (typeof(NSObject))]
 	interface TVIVideoSource
 	{
@@ -332,17 +316,8 @@ namespace Twilio.Video.iOS
 	}
 
 	// @protocol TVIAudioDeviceRenderer <NSObject>
-	/*
-	  Check whether adding [Model] to this declaration is appropriate.
-	  [Model] is used to generate a C# class that implements this protocol,
-	  and might be useful for protocols that consumers are supposed to implement,
-	  since consumers can subclass the generated class instead of implementing
-	  the generated interface. If consumers are not supposed to implement this
-	  protocol, then [Model] is redundant and will generate code that will never
-	  be used.
-	*/
 	[Introduced (PlatformName.iOS, 11, 0)]
-	[Protocol]
+	[Protocol, Model]
 	[BaseType (typeof(NSObject))]
 	interface TVIAudioDeviceRenderer
 	{
@@ -371,17 +346,8 @@ namespace Twilio.Video.iOS
 	}
 
 	// @protocol TVIAudioDeviceCapturer <NSObject>
-	/*
-	  Check whether adding [Model] to this declaration is appropriate.
-	  [Model] is used to generate a C# class that implements this protocol,
-	  and might be useful for protocols that consumers are supposed to implement,
-	  since consumers can subclass the generated class instead of implementing
-	  the generated interface. If consumers are not supposed to implement this
-	  protocol, then [Model] is redundant and will generate code that will never
-	  be used.
-	*/
 	[Introduced (PlatformName.iOS, 11, 0)]
-	[Protocol]
+	[Protocol, Model]
 	[BaseType (typeof(NSObject))]
 	interface TVIAudioDeviceCapturer
 	{
@@ -410,15 +376,6 @@ namespace Twilio.Video.iOS
 	}
 
 	// @protocol TVIAudioDevice <TVIAudioDeviceRenderer, TVIAudioDeviceCapturer>
-	/*
-	  Check whether adding [Model] to this declaration is appropriate.
-	  [Model] is used to generate a C# class that implements this protocol,
-	  and might be useful for protocols that consumers are supposed to implement,
-	  since consumers can subclass the generated class instead of implementing
-	  the generated interface. If consumers are not supposed to implement this
-	  protocol, then [Model] is redundant and will generate code that will never
-	  be used.
-	*/
 	[Introduced (PlatformName.iOS, 11, 0)]
 	[Protocol, Model]
 	[BaseType(typeof(NSObject))]
@@ -485,16 +442,7 @@ namespace Twilio.Video.iOS
 	}
 
 	// @protocol TVIAudioSink <NSObject>
-	/*
-	  Check whether adding [Model] to this declaration is appropriate.
-	  [Model] is used to generate a C# class that implements this protocol,
-	  and might be useful for protocols that consumers are supposed to implement,
-	  since consumers can subclass the generated class instead of implementing
-	  the generated interface. If consumers are not supposed to implement this
-	  protocol, then [Model] is redundant and will generate code that will never
-	  be used.
-	*/
-	[Protocol]
+	[Protocol, Model]
 	[BaseType (typeof(NSObject))]
 	interface TVIAudioSink
 	{
@@ -644,17 +592,8 @@ namespace Twilio.Video.iOS
 	}
 
 	// @protocol TVICameraSourceOrientationTracker <NSObject>
-	/*
-	  Check whether adding [Model] to this declaration is appropriate.
-	  [Model] is used to generate a C# class that implements this protocol,
-	  and might be useful for protocols that consumers are supposed to implement,
-	  since consumers can subclass the generated class instead of implementing
-	  the generated interface. If consumers are not supposed to implement this
-	  protocol, then [Model] is redundant and will generate code that will never
-	  be used.
-	*/
 	[Introduced (PlatformName.iOS, 11, 0)]
-	[Protocol]
+	[Protocol, Model]
 	[BaseType (typeof(NSObject))]
 	interface TVICameraSourceOrientationTracker
 	{
@@ -2596,16 +2535,7 @@ namespace Twilio.Video.iOS
 	}
 
 	// @protocol TVIVideoRenderer <NSObject>
-	/*
-	  Check whether adding [Model] to this declaration is appropriate.
-	  [Model] is used to generate a C# class that implements this protocol,
-	  and might be useful for protocols that consumers are supposed to implement,
-	  since consumers can subclass the generated class instead of implementing
-	  the generated interface. If consumers are not supposed to implement this
-	  protocol, then [Model] is redundant and will generate code that will never
-	  be used.
-	*/
-	[Protocol]
+	[Protocol, Model]
 	[BaseType (typeof(NSObject))]
 	interface TVIVideoRenderer
 	{
