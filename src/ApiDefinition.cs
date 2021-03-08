@@ -260,7 +260,7 @@ namespace Twilio.Video.iOS
 		// extern const uint32_t TVIAudioSampleRate8000 __attribute__((availability(ios, introduced=11.0))) __attribute__((swift_name("AudioFormat.SampleRate8000")));
 		[Introduced (PlatformName.iOS, 11, 0)]
 		[Field ("TVIAudioSampleRate8000", "__Internal")]
-        uint TVIAudioSampleRate8000 { get; }
+		uint TVIAudioSampleRate8000 { get; }
 
 		// extern const uint32_t TVIAudioSampleRate16000 __attribute__((availability(ios, introduced=11.0))) __attribute__((swift_name("AudioFormat.SampleRate16000")));
 		[Introduced (PlatformName.iOS, 11, 0)]
@@ -333,14 +333,15 @@ namespace Twilio.Video.iOS
 
 	// @protocol TVIAudioDeviceRenderer <NSObject>
 	/*
-  Check whether adding [Model] to this declaration is appropriate.
-  [Model] is used to generate a C# class that implements this protocol,
-  and might be useful for protocols that consumers are supposed to implement,
-  since consumers can subclass the generated class instead of implementing
-  the generated interface. If consumers are not supposed to implement this
-  protocol, then [Model] is redundant and will generate code that will never
-  be used.
-*/[Introduced (PlatformName.iOS, 11, 0)]
+	  Check whether adding [Model] to this declaration is appropriate.
+	  [Model] is used to generate a C# class that implements this protocol,
+	  and might be useful for protocols that consumers are supposed to implement,
+	  since consumers can subclass the generated class instead of implementing
+	  the generated interface. If consumers are not supposed to implement this
+	  protocol, then [Model] is redundant and will generate code that will never
+	  be used.
+	*/
+	[Introduced (PlatformName.iOS, 11, 0)]
 	[Protocol]
 	[BaseType (typeof(NSObject))]
 	interface TVIAudioDeviceRenderer
@@ -371,14 +372,15 @@ namespace Twilio.Video.iOS
 
 	// @protocol TVIAudioDeviceCapturer <NSObject>
 	/*
-  Check whether adding [Model] to this declaration is appropriate.
-  [Model] is used to generate a C# class that implements this protocol,
-  and might be useful for protocols that consumers are supposed to implement,
-  since consumers can subclass the generated class instead of implementing
-  the generated interface. If consumers are not supposed to implement this
-  protocol, then [Model] is redundant and will generate code that will never
-  be used.
-*/[Introduced (PlatformName.iOS, 11, 0)]
+	  Check whether adding [Model] to this declaration is appropriate.
+	  [Model] is used to generate a C# class that implements this protocol,
+	  and might be useful for protocols that consumers are supposed to implement,
+	  since consumers can subclass the generated class instead of implementing
+	  the generated interface. If consumers are not supposed to implement this
+	  protocol, then [Model] is redundant and will generate code that will never
+	  be used.
+	*/
+	[Introduced (PlatformName.iOS, 11, 0)]
 	[Protocol]
 	[BaseType (typeof(NSObject))]
 	interface TVIAudioDeviceCapturer
@@ -409,14 +411,15 @@ namespace Twilio.Video.iOS
 
 	// @protocol TVIAudioDevice <TVIAudioDeviceRenderer, TVIAudioDeviceCapturer>
 	/*
-  Check whether adding [Model] to this declaration is appropriate.
-  [Model] is used to generate a C# class that implements this protocol,
-  and might be useful for protocols that consumers are supposed to implement,
-  since consumers can subclass the generated class instead of implementing
-  the generated interface. If consumers are not supposed to implement this
-  protocol, then [Model] is redundant and will generate code that will never
-  be used.
-*/[Introduced (PlatformName.iOS, 11, 0)]
+	  Check whether adding [Model] to this declaration is appropriate.
+	  [Model] is used to generate a C# class that implements this protocol,
+	  and might be useful for protocols that consumers are supposed to implement,
+	  since consumers can subclass the generated class instead of implementing
+	  the generated interface. If consumers are not supposed to implement this
+	  protocol, then [Model] is redundant and will generate code that will never
+	  be used.
+	*/
+	[Introduced (PlatformName.iOS, 11, 0)]
 	[Protocol, Model]
 	[BaseType(typeof(NSObject))]
 	interface TVIAudioDevice : TVIAudioDeviceRenderer, TVIAudioDeviceCapturer
@@ -483,14 +486,15 @@ namespace Twilio.Video.iOS
 
 	// @protocol TVIAudioSink <NSObject>
 	/*
-  Check whether adding [Model] to this declaration is appropriate.
-  [Model] is used to generate a C# class that implements this protocol,
-  and might be useful for protocols that consumers are supposed to implement,
-  since consumers can subclass the generated class instead of implementing
-  the generated interface. If consumers are not supposed to implement this
-  protocol, then [Model] is redundant and will generate code that will never
-  be used.
-*/[Protocol]
+	  Check whether adding [Model] to this declaration is appropriate.
+	  [Model] is used to generate a C# class that implements this protocol,
+	  and might be useful for protocols that consumers are supposed to implement,
+	  since consumers can subclass the generated class instead of implementing
+	  the generated interface. If consumers are not supposed to implement this
+	  protocol, then [Model] is redundant and will generate code that will never
+	  be used.
+	*/
+	[Protocol]
 	[BaseType (typeof(NSObject))]
 	interface TVIAudioSink
 	{
@@ -641,14 +645,15 @@ namespace Twilio.Video.iOS
 
 	// @protocol TVICameraSourceOrientationTracker <NSObject>
 	/*
-  Check whether adding [Model] to this declaration is appropriate.
-  [Model] is used to generate a C# class that implements this protocol,
-  and might be useful for protocols that consumers are supposed to implement,
-  since consumers can subclass the generated class instead of implementing
-  the generated interface. If consumers are not supposed to implement this
-  protocol, then [Model] is redundant and will generate code that will never
-  be used.
-*/[Introduced (PlatformName.iOS, 11, 0)]
+	  Check whether adding [Model] to this declaration is appropriate.
+	  [Model] is used to generate a C# class that implements this protocol,
+	  and might be useful for protocols that consumers are supposed to implement,
+	  since consumers can subclass the generated class instead of implementing
+	  the generated interface. If consumers are not supposed to implement this
+	  protocol, then [Model] is redundant and will generate code that will never
+	  be used.
+	*/
+	[Introduced (PlatformName.iOS, 11, 0)]
 	[Protocol]
 	[BaseType (typeof(NSObject))]
 	interface TVICameraSourceOrientationTracker
@@ -2592,14 +2597,15 @@ namespace Twilio.Video.iOS
 
 	// @protocol TVIVideoRenderer <NSObject>
 	/*
-  Check whether adding [Model] to this declaration is appropriate.
-  [Model] is used to generate a C# class that implements this protocol,
-  and might be useful for protocols that consumers are supposed to implement,
-  since consumers can subclass the generated class instead of implementing
-  the generated interface. If consumers are not supposed to implement this
-  protocol, then [Model] is redundant and will generate code that will never
-  be used.
-*/[Protocol]
+	  Check whether adding [Model] to this declaration is appropriate.
+	  [Model] is used to generate a C# class that implements this protocol,
+	  and might be useful for protocols that consumers are supposed to implement,
+	  since consumers can subclass the generated class instead of implementing
+	  the generated interface. If consumers are not supposed to implement this
+	  protocol, then [Model] is redundant and will generate code that will never
+	  be used.
+	*/
+	[Protocol]
 	[BaseType (typeof(NSObject))]
 	interface TVIVideoRenderer
 	{
@@ -2629,11 +2635,11 @@ namespace Twilio.Video.iOS
 
 		// @optional -(void)videoView:(TVIVideoView * _Nonnull)view videoDimensionsDidChange:(CMVideoDimensions)dimensions __attribute__((swift_name("videoViewDimensionsDidChange(view:dimensions:)")));
 		[Export ("videoView:videoDimensionsDidChange:")]
-		void VideoView (TVIVideoView view, CMVideoDimensions dimensions);
+		void VideoViewVideoDimensionsDidChange (TVIVideoView view, CMVideoDimensions dimensions);
 
 		// @optional -(void)videoView:(TVIVideoView * _Nonnull)view videoOrientationDidChange:(TVIVideoOrientation)orientation __attribute__((swift_name("videoViewOrientationDidChange(view:dimensions:)")));
 		[Export ("videoView:videoOrientationDidChange:")]
-		void VideoView (TVIVideoView view, TVIVideoOrientation orientation);
+		void VideoViewVideoOrientationDidChange (TVIVideoView view, TVIVideoOrientation orientation);
 	}
 
 	// @interface TVIVideoView : UIView <TVIVideoRenderer>
