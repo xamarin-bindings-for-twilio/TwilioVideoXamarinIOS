@@ -9,6 +9,7 @@
     <RootNamespace>Twilio.Video.iOS</RootNamespace>
     <IPhoneResourcePrefix>Resources</IPhoneResourcePrefix>
     <AssemblyName>Twilio.Video.iOS</AssemblyName>
+    <NoBindingEmbedding>true</NoBindingEmbedding>
   </PropertyGroup>
   <PropertyGroup Condition="$(Configuration.Contains('Debug'))">
     <DebugSymbols>true</DebugSymbols>
@@ -45,10 +46,9 @@
     <ObjcBindingCoreSource Include="StructsAndEnums.cs" />
   </ItemGroup>
   <ItemGroup>
-    <NativeReference Include="Carthage\Build\iOS\TwilioVideo.framework">
+    <NativeReference Include="Pods\TwilioVideo\TwilioVideo.xcframework">
       <Kind>Framework</Kind>
-      <ForceLoad>True</ForceLoad>
-      <IsCxx>True</IsCxx>
+      <SmartLink>False</SmartLink>
     </NativeReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.ObjCBinding.CSharp.targets" />

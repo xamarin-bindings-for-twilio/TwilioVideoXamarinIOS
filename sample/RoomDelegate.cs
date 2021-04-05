@@ -1,6 +1,5 @@
 ﻿using System;
 using Foundation;
-using LSP.Mobile.Infrastructure.Common.Log;
 using Twilio.Video.iOS;
 
 namespace LSP.Mobile.iOS.ViewController.Delegates.Video
@@ -48,7 +47,8 @@ namespace LSP.Mobile.iOS.ViewController.Delegates.Video
 
         public TVIRoom ConnectToRoom(string token, TVILocalAudioTrack localAudioTrack, TVILocalVideoTrack localVideoTrack, string roomName)
         {
-            LogHelper.Call(nameof(RoomDelegate), nameof(ConnectToRoom));
+            Console.WriteLine("ConnectToRoom");
+
             InProgress = true;
 
             var connectOptions = TVIConnectOptions.OptionsWithToken(token, builder =>
@@ -58,14 +58,14 @@ namespace LSP.Mobile.iOS.ViewController.Delegates.Video
                 builder.RoomName = roomName;
             });
 
-            return TwilioVideo.ConnectWithOptions(connectOptions, Instance);
+            return TwilioVideoSDK.ConnectWithOptions(connectOptions, Instance);
         }
 
         // @optional -(void)didConnectToRoom:(TVIRoom * _Nonnull)room;
         [Export("didConnectToRoom:")]
         public override void DidConnectToRoom(TVIRoom room)
         {
-            LogHelper.Call(nameof(RoomDelegate), nameof(DidConnectToRoom));
+            Console.WriteLine("DidConnectToRoom");
             DidConnectToRoomEvent?.Invoke(this, room);
         }
 
@@ -73,7 +73,7 @@ namespace LSP.Mobile.iOS.ViewController.Delegates.Video
         [Export("room:didFailToConnectWithError:")]
         public override void RoomDidFailToConnectWithError(TVIRoom room, NSError error)
         {
-            LogHelper.Call(nameof(RoomDelegate), nameof(RoomDidFailToConnectWithError));
+            Console.WriteLine("RoomDidFailToConnectWithError");
             RoomDidFailToConnectWithErrorEvent?.Invoke(this, (room, error));
         }
 
@@ -81,7 +81,7 @@ namespace LSP.Mobile.iOS.ViewController.Delegates.Video
         [Export("room:didDisconnectWithError:")]
         public override void RoomDidDisconnectWithError(TVIRoom room, NSError error)
         {
-            LogHelper.Call(nameof(RoomDelegate), nameof(RoomDidDisconnectWithError));
+            Console.WriteLine("RoomDidDisconnectWithError");
             RoomDidDisconnectWithErrorEvent?.Invoke(this, (room, error));
         }
 
@@ -89,7 +89,7 @@ namespace LSP.Mobile.iOS.ViewController.Delegates.Video
         [Export("room:participantDidConnect:")]
         public override void RoomParticipantDidConnect(TVIRoom room, TVIRemoteParticipant participant)
         {
-            LogHelper.Call(nameof(RoomDelegate), nameof(RoomParticipantDidConnect));
+            Console.WriteLine("RoomParticipantDidConnect");
             RoomParticipantDidConnectEvent?.Invoke(this, (room, participant));
         }
 
@@ -97,7 +97,7 @@ namespace LSP.Mobile.iOS.ViewController.Delegates.Video
         [Export("room:participantDidDisconnect:")]
         public override void RoomParticipantDidDisconnect(TVIRoom room, TVIRemoteParticipant participant)
         {
-            LogHelper.Call(nameof(RoomDelegate), nameof(RoomParticipantDidDisconnect));
+            Console.WriteLine("RoomParticipantDidDisconnect");
             RoomParticipantDidDisconnectEvent?.Invoke(this, (room, participant));
         }
 
@@ -105,7 +105,7 @@ namespace LSP.Mobile.iOS.ViewController.Delegates.Video
         [Export("roomDidStartRecording:")]
         public override void RoomDidStartRecording(TVIRoom room)
         {
-            LogHelper.Call(nameof(RoomDelegate), nameof(RoomDidStartRecording));
+            Console.WriteLine("RoomDidStartRecording");
             RoomDidStartRecordingEvent?.Invoke(this, room);
         }
 
@@ -113,7 +113,7 @@ namespace LSP.Mobile.iOS.ViewController.Delegates.Video
         [Export("roomDidStopRecording:")]
         public override void RoomDidStopRecording(TVIRoom room)
         {
-            LogHelper.Call(nameof(RoomDelegate), nameof(RoomDidStopRecording));
+            Console.WriteLine("RoomDidStopRecording");
             RoomDidStopRecordingEvent?.Invoke(this, room);
         }
 

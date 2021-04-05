@@ -1,6 +1,5 @@
 ﻿using System;
 using Foundation;
-using LSP.Mobile.Infrastructure.Common.Log;
 using Twilio.Video.iOS;
 
 namespace LSP.Mobile.iOS.ViewController.Delegates.Video
@@ -32,182 +31,234 @@ namespace LSP.Mobile.iOS.ViewController.Delegates.Video
 
         #region Events
 
-        public event EventHandler<(TVIRemoteParticipant participant, TVIRemoteVideoTrackPublication publication)> RemoteParticipantPublishedVideoTrackEvent;
-        public event EventHandler<(TVIRemoteParticipant participant, TVIRemoteVideoTrackPublication publication)> RemoteParticipantUnpublishedVideoTrackEvent;
-        public event EventHandler<(TVIRemoteParticipant participant, TVIRemoteAudioTrackPublication publication)> RemoteParticipantPublishedAudioTrackEvent;
-        public event EventHandler<(TVIRemoteParticipant participant, TVIRemoteAudioTrackPublication publication)> RemoteParticipantUnpublishedAudioTrackEvent;
-        public event EventHandler<(TVIRemoteParticipant participant, TVIRemoteDataTrackPublication publication)> RemoteParticipantPublishedDataTrackEvent;
-        public event EventHandler<(TVIRemoteParticipant participant, TVIRemoteDataTrackPublication publication)> RemoteParticipantUnpublishedDataTrackEvent;
-        public event EventHandler<(TVIRemoteParticipant participant, TVIRemoteVideoTrackPublication publication)> RemoteParticipantEnabledVideoTrackEvent;
-        public event EventHandler<(TVIRemoteParticipant participant, TVIRemoteVideoTrackPublication publication)> RemoteParticipantDisabledVideoTrackEvent;
-        public event EventHandler<(TVIRemoteParticipant participant, TVIRemoteAudioTrackPublication publication)> RemoteParticipantEnabledAudioTrackEvent;
-        public event EventHandler<(TVIRemoteParticipant participant, TVIRemoteAudioTrackPublication publication)> RemoteParticipantDisabledAudioTrackEvent;
-        public event EventHandler<(TVIRemoteVideoTrack videoTrack, TVIRemoteVideoTrackPublication publication, TVIRemoteParticipant participant)> SubscribedToVideoTrackEvent;
-        public event EventHandler<(TVIRemoteVideoTrackPublication publication, NSError error, TVIRemoteParticipant participant)> FailedToSubscribeToVideoTrackEvent;
-        public event EventHandler<(TVIRemoteVideoTrack videoTrack, TVIRemoteVideoTrackPublication publication, TVIRemoteParticipant participant)> UnsubscribedFromVideoTrackEvent;
-        public event EventHandler<(TVIRemoteAudioTrack audioTrack, TVIRemoteAudioTrackPublication publication, TVIRemoteParticipant participant)> SubscribedToAudioTrackEvent;
-        public event EventHandler<(TVIRemoteAudioTrackPublication publication, NSError error, TVIRemoteParticipant participant)> FailedToSubscribeToAudioTrackEvent;
-        public event EventHandler<(TVIRemoteAudioTrack audioTrack, TVIRemoteAudioTrackPublication publication, TVIRemoteParticipant participant)> UnsubscribedFromAudioTrackEvent;
-        public event EventHandler<(TVIRemoteDataTrack dataTrack, TVIRemoteDataTrackPublication publication, TVIRemoteParticipant participant)> SubscribedToDataTrackEvent;
-        public event EventHandler<(TVIRemoteDataTrackPublication publication, NSError error, TVIRemoteParticipant participant)> FailedToSubscribeToDataTrackEvent;
-        public event EventHandler<(TVIRemoteDataTrack dataTrack, TVIRemoteDataTrackPublication publication, TVIRemoteParticipant participant)> UnsubscribedFromDataTrackEvent;
+        public event EventHandler<(TVIRemoteParticipant participant, TVIRemoteVideoTrackPublication publication)> RemoteParticipantDidPublishVideoTrackEvent;
+        public event EventHandler<(TVIRemoteParticipant participant, TVIRemoteVideoTrackPublication publication)> RemoteParticipantDidUnpublishVideoTrackEvent;
+        public event EventHandler<(TVIRemoteParticipant participant, TVIRemoteAudioTrackPublication publication)> RemoteParticipantDidPublishAudioTrackEvent;
+        public event EventHandler<(TVIRemoteParticipant participant, TVIRemoteAudioTrackPublication publication)> RemoteParticipantDidUnpublishAudioTrackEvent;
+        public event EventHandler<(TVIRemoteParticipant participant, TVIRemoteDataTrackPublication publication)> RemoteParticipantDidPublishDataTrackEvent;
+        public event EventHandler<(TVIRemoteParticipant participant, TVIRemoteDataTrackPublication publication)> RemoteParticipantDidUnpublishDataTrackEvent;
+        public event EventHandler<(TVIRemoteParticipant participant, TVIRemoteVideoTrackPublication publication)> RemoteParticipantDidEnableVideoTrackEvent;
+        public event EventHandler<(TVIRemoteParticipant participant, TVIRemoteVideoTrackPublication publication)> RemoteParticipantDidDisableVideoTrackEvent;
+        public event EventHandler<(TVIRemoteParticipant participant, TVIRemoteAudioTrackPublication publication)> RemoteParticipantDidEnableAudioTrackEvent;
+        public event EventHandler<(TVIRemoteParticipant participant, TVIRemoteAudioTrackPublication publication)> RemoteParticipantDidDisableAudioTrackEvent;
+        public event EventHandler<(TVIRemoteVideoTrack videoTrack, TVIRemoteVideoTrackPublication publication, TVIRemoteParticipant participant)> DidSubscribeToVideoTrackEvent;
+        public event EventHandler<(TVIRemoteVideoTrackPublication publication, NSError error, TVIRemoteParticipant participant)> DidFailToSubscribeToVideoTrackEvent;
+        public event EventHandler<(TVIRemoteVideoTrack videoTrack, TVIRemoteVideoTrackPublication publication, TVIRemoteParticipant participant)> DidUnsubscribeFromVideoTrackEvent;
+        public event EventHandler<(TVIRemoteAudioTrack audioTrack, TVIRemoteAudioTrackPublication publication, TVIRemoteParticipant participant)> DidSubscribeToAudioTrackEvent;
+        public event EventHandler<(TVIRemoteAudioTrackPublication publication, NSError error, TVIRemoteParticipant participant)> DidFailToSubscribeToAudioTrackEvent;
+        public event EventHandler<(TVIRemoteAudioTrack audioTrack, TVIRemoteAudioTrackPublication publication, TVIRemoteParticipant participant)> DidUnsubscribeFromAudioTrackEvent;
+        public event EventHandler<(TVIRemoteDataTrack dataTrack, TVIRemoteDataTrackPublication publication, TVIRemoteParticipant participant)> DidSubscribeToDataTrackEvent;
+        public event EventHandler<(TVIRemoteDataTrackPublication publication, NSError error, TVIRemoteParticipant participant)> DidFailToSubscribeToDataTrackEvent;
+        public event EventHandler<(TVIRemoteDataTrack dataTrack, TVIRemoteDataTrackPublication publication, TVIRemoteParticipant participant)> DidUnsubscribeFromDataTrackEvent;
+        public event EventHandler<(TVIRemoteParticipant participant, TVINetworkQualityLevel networkQualityLevel)> RemoteParticipantNetworkQualityLevelDidChangeEvent;
+        public event EventHandler<(TVIRemoteParticipant participant, TVIRemoteVideoTrack track)> RemoteParticipantSwitchedOffVideoTrackEvent;
+        public event EventHandler<(TVIRemoteParticipant participant, TVIRemoteVideoTrack track)> RemoteParticipantSwitchedOnVideoTrackEvent;
+        public event EventHandler<(TVIRemoteParticipant participant, string priority, TVIRemoteAudioTrackPublication publication)> RemoteParticipantDidChangePublishPriorityEvent;
+        public event EventHandler<(TVIRemoteParticipant participant, string priority, TVIRemoteVideoTrackPublication publication)> RemoteParticipantDidChangePublishPriorityForVideoTrackEvent;
+        public event EventHandler<(TVIRemoteParticipant participant, string priority, TVIRemoteDataTrackPublication publication)> RemoteParticipantDidChangePublishPriorityForDataTrackEvent;
 
         #endregion
 
         #region Methods
-
-        // @optional -(void)remoteParticipant:(TVIRemoteParticipant * _Nonnull)participant publishedVideoTrack:(TVIRemoteVideoTrackPublication * _Nonnull)publication;
-        [Export("remoteParticipant:publishedVideoTrack:")]
-        public override void RemoteParticipantPublishedVideoTrack(TVIRemoteParticipant participant, TVIRemoteVideoTrackPublication publication)
+        // @optional -(void)remoteParticipant:(TVIRemoteParticipant * _Nonnull)participant didPublishVideoTrack:(TVIRemoteVideoTrackPublication * _Nonnull)publication __attribute__((swift_name("remoteParticipantDidPublishVideoTrack(participant:publication:)")));
+        [Export("remoteParticipant:didPublishVideoTrack:")]
+        public override void RemoteParticipantDidPublishVideoTrack(TVIRemoteParticipant participant, TVIRemoteVideoTrackPublication publication)
         {
-            LogHelper.Call(nameof(RemoteParticipantDelegate), nameof(RemoteParticipantPublishedVideoTrack));
-            RemoteParticipantPublishedVideoTrackEvent?.Invoke(this, (participant, publication));
+            Console.WriteLine("RemoteParticipantDidPublishVideoTrack");
+            RemoteParticipantDidPublishVideoTrackEvent?.Invoke(this, (participant, publication));
         }
 
-        // @optional -(void)remoteParticipant:(TVIRemoteParticipant * _Nonnull)participant unpublishedVideoTrack:(TVIRemoteVideoTrackPublication * _Nonnull)publication;
-        [Export("remoteParticipant:unpublishedVideoTrack:")]
-        public override void RemoteParticipantUnpublishedVideoTrack(TVIRemoteParticipant participant, TVIRemoteVideoTrackPublication publication)
+        // @optional -(void)remoteParticipant:(TVIRemoteParticipant * _Nonnull)participant didUnpublishVideoTrack:(TVIRemoteVideoTrackPublication * _Nonnull)publication __attribute__((swift_name("remoteParticipantDidUnpublishVideoTrack(participant:publication:)")));
+        [Export("remoteParticipant:didUnpublishVideoTrack:")]
+        public override void RemoteParticipantDidUnpublishVideoTrack(TVIRemoteParticipant participant, TVIRemoteVideoTrackPublication publication)
         {
-            LogHelper.Call(nameof(RemoteParticipantDelegate), nameof(RemoteParticipantUnpublishedVideoTrack));
-            RemoteParticipantUnpublishedVideoTrackEvent?.Invoke(this, (participant, publication));
+            Console.WriteLine("RemoteParticipantDidUnpublishVideoTrack");
+            RemoteParticipantDidUnpublishVideoTrackEvent?.Invoke(this, (participant, publication));
         }
 
-        // @optional -(void)remoteParticipant:(TVIRemoteParticipant * _Nonnull)participant publishedAudioTrack:(TVIRemoteAudioTrackPublication * _Nonnull)publication;
-        [Export("remoteParticipant:publishedAudioTrack:")]
-        public override void RemoteParticipantPublishedAudioTrack(TVIRemoteParticipant participant, TVIRemoteAudioTrackPublication publication)
+        // @optional -(void)remoteParticipant:(TVIRemoteParticipant * _Nonnull)participant didPublishAudioTrack:(TVIRemoteAudioTrackPublication * _Nonnull)publication __attribute__((swift_name("remoteParticipantDidPublishAudioTrack(participant:publication:)")));
+        [Export("remoteParticipant:didPublishAudioTrack:")]
+        public override void RemoteParticipantDidPublishAudioTrack(TVIRemoteParticipant participant, TVIRemoteAudioTrackPublication publication)
         {
-            LogHelper.Call(nameof(RemoteParticipantDelegate), nameof(RemoteParticipantPublishedAudioTrack));
-            RemoteParticipantPublishedAudioTrackEvent?.Invoke(this, (participant, publication));
+            Console.WriteLine("RemoteParticipantDidPublishAudioTrack");
+            RemoteParticipantDidPublishAudioTrackEvent?.Invoke(this, (participant, publication));
         }
 
-        // @optional -(void)remoteParticipant:(TVIRemoteParticipant * _Nonnull)participant unpublishedAudioTrack:(TVIRemoteAudioTrackPublication * _Nonnull)publication;
-        [Export("remoteParticipant:unpublishedAudioTrack:")]
-        public override void RemoteParticipantUnpublishedAudioTrack(TVIRemoteParticipant participant, TVIRemoteAudioTrackPublication publication)
+        // @optional -(void)remoteParticipant:(TVIRemoteParticipant * _Nonnull)participant didUnpublishAudioTrack:(TVIRemoteAudioTrackPublication * _Nonnull)publication __attribute__((swift_name("remoteParticipantDidUnpublishAudioTrack(participant:publication:)")));
+        [Export("remoteParticipant:didUnpublishAudioTrack:")]
+        public override void RemoteParticipantDidUnpublishAudioTrack(TVIRemoteParticipant participant, TVIRemoteAudioTrackPublication publication)
         {
-            LogHelper.Call(nameof(RemoteParticipantDelegate), nameof(RemoteParticipantUnpublishedAudioTrack));
-            RemoteParticipantUnpublishedAudioTrackEvent?.Invoke(this, (participant, publication));
+            Console.WriteLine("RemoteParticipantDidUnpublishAudioTrack");
+            RemoteParticipantDidUnpublishAudioTrackEvent?.Invoke(this, (participant, publication));
         }
 
-        // @optional -(void)remoteParticipant:(TVIRemoteParticipant * _Nonnull)participant publishedDataTrack:(TVIRemoteDataTrackPublication * _Nonnull)publication;
-        [Export("remoteParticipant:publishedDataTrack:")]
-        public override void RemoteParticipantPublishedDataTrack(TVIRemoteParticipant participant, TVIRemoteDataTrackPublication publication)
+        // @optional -(void)remoteParticipant:(TVIRemoteParticipant * _Nonnull)participant didPublishDataTrack:(TVIRemoteDataTrackPublication * _Nonnull)publication __attribute__((swift_name("remoteParticipantDidPublishDataTrack(participant:publication:)")));
+        [Export("remoteParticipant:didPublishDataTrack:")]
+        public override void RemoteParticipantDidPublishDataTrack(TVIRemoteParticipant participant, TVIRemoteDataTrackPublication publication)
         {
-            LogHelper.Call(nameof(RemoteParticipantDelegate), nameof(RemoteParticipantPublishedDataTrack));
-            RemoteParticipantPublishedDataTrackEvent?.Invoke(this, (participant, publication));
+            Console.WriteLine("RemoteParticipantDidPublishDataTrack");
+            RemoteParticipantDidPublishDataTrackEvent?.Invoke(this, (participant, publication));
         }
 
-        // @optional -(void)remoteParticipant:(TVIRemoteParticipant * _Nonnull)participant unpublishedDataTrack:(TVIRemoteDataTrackPublication * _Nonnull)publication;
-        [Export("remoteParticipant:unpublishedDataTrack:")]
-        public override void RemoteParticipantUnpublishedDataTrack(TVIRemoteParticipant participant, TVIRemoteDataTrackPublication publication)
+        // @optional -(void)remoteParticipant:(TVIRemoteParticipant * _Nonnull)participant didUnpublishDataTrack:(TVIRemoteDataTrackPublication * _Nonnull)publication __attribute__((swift_name("remoteParticipantDidUnpublishDataTrack(participant:publication:)")));
+        [Export("remoteParticipant:didUnpublishDataTrack:")]
+        public override void RemoteParticipantDidUnpublishDataTrack(TVIRemoteParticipant participant, TVIRemoteDataTrackPublication publication)
         {
-            LogHelper.Call(nameof(RemoteParticipantDelegate), nameof(RemoteParticipantUnpublishedDataTrack));
-            RemoteParticipantUnpublishedDataTrackEvent?.Invoke(this, (participant, publication));
+            Console.WriteLine("RemoteParticipantDidUnpublishDataTrack");
+            RemoteParticipantDidUnpublishDataTrackEvent?.Invoke(this, (participant, publication));
         }
 
-        // @optional -(void)remoteParticipant:(TVIRemoteParticipant * _Nonnull)participant enabledVideoTrack:(TVIRemoteVideoTrackPublication * _Nonnull)publication;
-        [Export("remoteParticipant:enabledVideoTrack:")]
-        public override void RemoteParticipantEnabledVideoTrack(TVIRemoteParticipant participant, TVIRemoteVideoTrackPublication publication)
+        // @optional -(void)remoteParticipant:(TVIRemoteParticipant * _Nonnull)participant didEnableVideoTrack:(TVIRemoteVideoTrackPublication * _Nonnull)publication __attribute__((swift_name("remoteParticipantDidEnableVideoTrack(participant:publication:)")));
+        [Export("remoteParticipant:didEnableVideoTrack:")]
+        public override void RemoteParticipantDidEnableVideoTrack(TVIRemoteParticipant participant, TVIRemoteVideoTrackPublication publication)
         {
-            LogHelper.Call(nameof(RemoteParticipantDelegate), nameof(RemoteParticipantEnabledVideoTrack));
-            RemoteParticipantEnabledVideoTrackEvent?.Invoke(this, (participant, publication));
+            Console.WriteLine("RemoteParticipantDidEnableVideoTrack");
+            RemoteParticipantDidEnableVideoTrackEvent?.Invoke(this, (participant, publication));
         }
 
-        // @optional -(void)remoteParticipant:(TVIRemoteParticipant * _Nonnull)participant disabledVideoTrack:(TVIRemoteVideoTrackPublication * _Nonnull)publication;
-        [Export("remoteParticipant:disabledVideoTrack:")]
-        public override void RemoteParticipantDisabledVideoTrack(TVIRemoteParticipant participant, TVIRemoteVideoTrackPublication publication)
+        // @optional -(void)remoteParticipant:(TVIRemoteParticipant * _Nonnull)participant didDisableVideoTrack:(TVIRemoteVideoTrackPublication * _Nonnull)publication __attribute__((swift_name("remoteParticipantDidDisableVideoTrack(participant:publication:)")));
+        [Export("remoteParticipant:didDisableVideoTrack:")]
+        public override void RemoteParticipantDidDisableVideoTrack(TVIRemoteParticipant participant, TVIRemoteVideoTrackPublication publication)
         {
-            LogHelper.Call(nameof(RemoteParticipantDelegate), nameof(RemoteParticipantDisabledVideoTrack));
-            RemoteParticipantDisabledVideoTrackEvent?.Invoke(this, (participant, publication));
+            Console.WriteLine("RemoteParticipantDidDisableVideoTrack");
+            RemoteParticipantDidDisableVideoTrackEvent?.Invoke(this, (participant, publication));
         }
 
-        // @optional -(void)remoteParticipant:(TVIRemoteParticipant * _Nonnull)participant enabledAudioTrack:(TVIRemoteAudioTrackPublication * _Nonnull)publication;
-        [Export("remoteParticipant:enabledAudioTrack:")]
-        public override void RemoteParticipantEnabledAudioTrack(TVIRemoteParticipant participant, TVIRemoteAudioTrackPublication publication)
+        // @optional -(void)remoteParticipant:(TVIRemoteParticipant * _Nonnull)participant didEnableAudioTrack:(TVIRemoteAudioTrackPublication * _Nonnull)publication __attribute__((swift_name("remoteParticipantDidEnableAudioTrack(participant:publication:)")));
+        [Export("remoteParticipant:didEnableAudioTrack:")]
+        public override void RemoteParticipantDidEnableAudioTrack(TVIRemoteParticipant participant, TVIRemoteAudioTrackPublication publication)
         {
-            LogHelper.Call(nameof(RemoteParticipantDelegate), nameof(RemoteParticipantEnabledAudioTrack));
-            RemoteParticipantEnabledAudioTrackEvent?.Invoke(this, (participant, publication));
+            Console.WriteLine("RemoteParticipantDidEnableAudioTrack");
+            RemoteParticipantDidEnableAudioTrackEvent?.Invoke(this, (participant, publication));
         }
 
-        // @optional -(void)remoteParticipant:(TVIRemoteParticipant * _Nonnull)participant disabledAudioTrack:(TVIRemoteAudioTrackPublication * _Nonnull)publication;
-        [Export("remoteParticipant:disabledAudioTrack:")]
-        public override void RemoteParticipantDisabledAudioTrack(TVIRemoteParticipant participant, TVIRemoteAudioTrackPublication publication)
+        // @optional -(void)remoteParticipant:(TVIRemoteParticipant * _Nonnull)participant didDisableAudioTrack:(TVIRemoteAudioTrackPublication * _Nonnull)publication __attribute__((swift_name("remoteParticipantDidDisableAudioTrack(participant:publication:)")));
+        [Export("remoteParticipant:didDisableAudioTrack:")]
+        public override void RemoteParticipantDidDisableAudioTrack(TVIRemoteParticipant participant, TVIRemoteAudioTrackPublication publication)
         {
-            LogHelper.Call(nameof(RemoteParticipantDelegate), nameof(RemoteParticipantDisabledAudioTrack));
-            RemoteParticipantDisabledAudioTrackEvent?.Invoke(this, (participant, publication));
+            Console.WriteLine("RemoteParticipantDidDisableAudioTrack");
+            RemoteParticipantDidDisableAudioTrackEvent?.Invoke(this, (participant, publication));
         }
 
-        // @optional -(void)subscribedToVideoTrack:(TVIRemoteVideoTrack * _Nonnull)videoTrack publication:(TVIRemoteVideoTrackPublication * _Nonnull)publication forParticipant:(TVIRemoteParticipant * _Nonnull)participant;
-        [Export("subscribedToVideoTrack:publication:forParticipant:")]
-        public override void SubscribedToVideoTrack(TVIRemoteVideoTrack videoTrack, TVIRemoteVideoTrackPublication publication, TVIRemoteParticipant participant)
+        // @optional -(void)didSubscribeToVideoTrack:(TVIRemoteVideoTrack * _Nonnull)videoTrack publication:(TVIRemoteVideoTrackPublication * _Nonnull)publication forParticipant:(TVIRemoteParticipant * _Nonnull)participant __attribute__((swift_name("didSubscribeToVideoTrack(videoTrack:publication:participant:)")));
+        [Export("didSubscribeToVideoTrack:publication:forParticipant:")]
+        public override void DidSubscribeToVideoTrack(TVIRemoteVideoTrack videoTrack, TVIRemoteVideoTrackPublication publication, TVIRemoteParticipant participant)
         {
-            LogHelper.Call(nameof(RemoteParticipantDelegate), nameof(SubscribedToVideoTrack));
-            SubscribedToVideoTrackEvent?.Invoke(this, (videoTrack, publication, participant));
+            Console.WriteLine("DidSubscribeToVideoTrack");
+            DidSubscribeToVideoTrackEvent?.Invoke(this, (videoTrack, publication, participant));
         }
 
-        // @optional -(void)failedToSubscribeToVideoTrack:(TVIRemoteVideoTrackPublication * _Nonnull)publication error:(NSError * _Nonnull)error forParticipant:(TVIRemoteParticipant * _Nonnull)participant;
-        [Export("failedToSubscribeToVideoTrack:error:forParticipant:")]
-        public override void FailedToSubscribeToVideoTrack(TVIRemoteVideoTrackPublication publication, NSError error, TVIRemoteParticipant participant)
+        // @optional -(void)didFailToSubscribeToVideoTrack:(TVIRemoteVideoTrackPublication * _Nonnull)publication error:(NSError * _Nonnull)error forParticipant:(TVIRemoteParticipant * _Nonnull)participant __attribute__((swift_name("didFailToSubscribeToVideoTrack(publication:error:participant:)")));
+        [Export("didFailToSubscribeToVideoTrack:error:forParticipant:")]
+        public override void DidFailToSubscribeToVideoTrack(TVIRemoteVideoTrackPublication publication, NSError error, TVIRemoteParticipant participant)
         {
-            LogHelper.Call(nameof(RemoteParticipantDelegate), nameof(FailedToSubscribeToVideoTrack));
-            FailedToSubscribeToVideoTrackEvent?.Invoke(this, (publication, error, participant));
+            Console.WriteLine("DidFailToSubscribeToVideoTrack");
+            DidFailToSubscribeToVideoTrackEvent?.Invoke(this, (publication, error, participant));
         }
 
-        // @optional -(void)unsubscribedFromVideoTrack:(TVIRemoteVideoTrack * _Nonnull)videoTrack publication:(TVIRemoteVideoTrackPublication * _Nonnull)publication forParticipant:(TVIRemoteParticipant * _Nonnull)participant;
-        [Export("unsubscribedFromVideoTrack:publication:forParticipant:")]
-        public override void UnsubscribedFromVideoTrack(TVIRemoteVideoTrack videoTrack, TVIRemoteVideoTrackPublication publication, TVIRemoteParticipant participant)
+        // @optional -(void)didUnsubscribeFromVideoTrack:(TVIRemoteVideoTrack * _Nonnull)videoTrack publication:(TVIRemoteVideoTrackPublication * _Nonnull)publication forParticipant:(TVIRemoteParticipant * _Nonnull)participant __attribute__((swift_name("didUnsubscribeFromVideoTrack(videoTrack:publication:participant:)")));
+        [Export("didUnsubscribeFromVideoTrack:publication:forParticipant:")]
+        public override void DidUnsubscribeFromVideoTrack(TVIRemoteVideoTrack videoTrack, TVIRemoteVideoTrackPublication publication, TVIRemoteParticipant participant)
         {
-            LogHelper.Call(nameof(RemoteParticipantDelegate), nameof(UnsubscribedFromVideoTrack));
-            UnsubscribedFromVideoTrackEvent?.Invoke(this, (videoTrack, publication, participant));
+            Console.WriteLine("DidUnsubscribeFromVideoTrack");
+            DidUnsubscribeFromVideoTrackEvent?.Invoke(this, (videoTrack, publication, participant));
         }
 
-        // @optional -(void)subscribedToAudioTrack:(TVIRemoteAudioTrack * _Nonnull)audioTrack publication:(TVIRemoteAudioTrackPublication * _Nonnull)publication forParticipant:(TVIRemoteParticipant * _Nonnull)participant;
-        [Export("subscribedToAudioTrack:publication:forParticipant:")]
-        public override void SubscribedToAudioTrack(TVIRemoteAudioTrack audioTrack, TVIRemoteAudioTrackPublication publication, TVIRemoteParticipant participant)
+        // @optional -(void)didSubscribeToAudioTrack:(TVIRemoteAudioTrack * _Nonnull)audioTrack publication:(TVIRemoteAudioTrackPublication * _Nonnull)publication forParticipant:(TVIRemoteParticipant * _Nonnull)participant __attribute__((swift_name("didSubscribeToAudioTrack(audioTrack:publication:participant:)")));
+        [Export("didSubscribeToAudioTrack:publication:forParticipant:")]
+        public override void DidSubscribeToAudioTrack(TVIRemoteAudioTrack audioTrack, TVIRemoteAudioTrackPublication publication, TVIRemoteParticipant participant)
         {
-            LogHelper.Call(nameof(RemoteParticipantDelegate), nameof(SubscribedToAudioTrack));
-            SubscribedToAudioTrackEvent?.Invoke(this, (audioTrack, publication, participant));
+            Console.WriteLine("DidSubscribeToAudioTrack");
+            DidSubscribeToAudioTrackEvent?.Invoke(this, (audioTrack, publication, participant));
         }
 
-        // @optional -(void)failedToSubscribeToAudioTrack:(TVIRemoteAudioTrackPublication * _Nonnull)publication error:(NSError * _Nonnull)error forParticipant:(TVIRemoteParticipant * _Nonnull)participant;
-        [Export("failedToSubscribeToAudioTrack:error:forParticipant:")]
-        public override void FailedToSubscribeToAudioTrack(TVIRemoteAudioTrackPublication publication, NSError error, TVIRemoteParticipant participant)
+        // @optional -(void)didFailToSubscribeToAudioTrack:(TVIRemoteAudioTrackPublication * _Nonnull)publication error:(NSError * _Nonnull)error forParticipant:(TVIRemoteParticipant * _Nonnull)participant __attribute__((swift_name("didFailToSubscribeToAudioTrack(publication:error:participant:)")));
+        [Export("didFailToSubscribeToAudioTrack:error:forParticipant:")]
+        public override void DidFailToSubscribeToAudioTrack(TVIRemoteAudioTrackPublication publication, NSError error, TVIRemoteParticipant participant)
         {
-            LogHelper.Call(nameof(RemoteParticipantDelegate), nameof(FailedToSubscribeToAudioTrack));
-            FailedToSubscribeToAudioTrackEvent?.Invoke(this, (publication, error, participant));
+            Console.WriteLine("DidFailToSubscribeToAudioTrack");
+            DidFailToSubscribeToAudioTrackEvent?.Invoke(this, (publication, error, participant));
         }
 
-        // @optional -(void)unsubscribedFromAudioTrack:(TVIRemoteAudioTrack * _Nonnull)audioTrack publication:(TVIRemoteAudioTrackPublication * _Nonnull)publication forParticipant:(TVIRemoteParticipant * _Nonnull)participant;
-        [Export("unsubscribedFromAudioTrack:publication:forParticipant:")]
-        public override void UnsubscribedFromAudioTrack(TVIRemoteAudioTrack audioTrack, TVIRemoteAudioTrackPublication publication, TVIRemoteParticipant participant)
+        // @optional -(void)didUnsubscribeFromAudioTrack:(TVIRemoteAudioTrack * _Nonnull)audioTrack publication:(TVIRemoteAudioTrackPublication * _Nonnull)publication forParticipant:(TVIRemoteParticipant * _Nonnull)participant __attribute__((swift_name("didUnsubscribeFromAudioTrack(audioTrack:publication:participant:)")));
+        [Export("didUnsubscribeFromAudioTrack:publication:forParticipant:")]
+        public override void DidUnsubscribeFromAudioTrack(TVIRemoteAudioTrack audioTrack, TVIRemoteAudioTrackPublication publication, TVIRemoteParticipant participant)
         {
-            LogHelper.Call(nameof(RemoteParticipantDelegate), nameof(UnsubscribedFromAudioTrack));
-            UnsubscribedFromAudioTrackEvent?.Invoke(this, (audioTrack, publication, participant));
+            Console.WriteLine("DidUnsubscribeFromAudioTrack");
+            DidUnsubscribeFromAudioTrackEvent?.Invoke(this, (audioTrack, publication, participant));
         }
 
-        // @optional -(void)subscribedToDataTrack:(TVIRemoteDataTrack * _Nonnull)dataTrack publication:(TVIRemoteDataTrackPublication * _Nonnull)publication forParticipant:(TVIRemoteParticipant * _Nonnull)participant;
-        [Export("subscribedToDataTrack:publication:forParticipant:")]
-        public override void SubscribedToDataTrack(TVIRemoteDataTrack dataTrack, TVIRemoteDataTrackPublication publication, TVIRemoteParticipant participant)
+        // @optional -(void)didSubscribeToDataTrack:(TVIRemoteDataTrack * _Nonnull)dataTrack publication:(TVIRemoteDataTrackPublication * _Nonnull)publication forParticipant:(TVIRemoteParticipant * _Nonnull)participant __attribute__((swift_name("didSubscribeToDataTrack(dataTrack:publication:participant:)")));
+        [Export("didSubscribeToDataTrack:publication:forParticipant:")]
+        public override void DidSubscribeToDataTrack(TVIRemoteDataTrack dataTrack, TVIRemoteDataTrackPublication publication, TVIRemoteParticipant participant)
         {
-            LogHelper.Call(nameof(RemoteParticipantDelegate), nameof(SubscribedToDataTrack));
-            SubscribedToDataTrackEvent?.Invoke(this, (dataTrack, publication, participant));
+            Console.WriteLine("DidSubscribeToDataTrack");
+            DidSubscribeToDataTrackEvent?.Invoke(this, (dataTrack, publication, participant));
         }
 
-        // @optional -(void)failedToSubscribeToDataTrack:(TVIRemoteDataTrackPublication * _Nonnull)publication error:(NSError * _Nonnull)error forParticipant:(TVIRemoteParticipant * _Nonnull)participant;
-        [Export("failedToSubscribeToDataTrack:error:forParticipant:")]
-        public override void FailedToSubscribeToDataTrack(TVIRemoteDataTrackPublication publication, NSError error, TVIRemoteParticipant participant)
+        // @optional -(void)didFailToSubscribeToDataTrack:(TVIRemoteDataTrackPublication * _Nonnull)publication error:(NSError * _Nonnull)error forParticipant:(TVIRemoteParticipant * _Nonnull)participant __attribute__((swift_name("didFailToSubscribeToDataTrack(publication:error:participant:)")));
+        [Export("didFailToSubscribeToDataTrack:error:forParticipant:")]
+        public override void DidFailToSubscribeToDataTrack(TVIRemoteDataTrackPublication publication, NSError error, TVIRemoteParticipant participant)
         {
-            LogHelper.Call(nameof(RemoteParticipantDelegate), nameof(FailedToSubscribeToDataTrack));
-            FailedToSubscribeToDataTrackEvent?.Invoke(this, (publication, error, participant));
+            Console.WriteLine("DidFailToSubscribeToDataTrack");
+            DidFailToSubscribeToDataTrackEvent?.Invoke(this, (publication, error, participant));
         }
 
-        // @optional -(void)unsubscribedFromDataTrack:(TVIRemoteDataTrack * _Nonnull)dataTrack publication:(TVIRemoteDataTrackPublication * _Nonnull)publication forParticipant:(TVIRemoteParticipant * _Nonnull)participant;
-        [Export("unsubscribedFromDataTrack:publication:forParticipant:")]
-        public override void UnsubscribedFromDataTrack(TVIRemoteDataTrack dataTrack, TVIRemoteDataTrackPublication publication, TVIRemoteParticipant participant)
+        // @optional -(void)didUnsubscribeFromDataTrack:(TVIRemoteDataTrack * _Nonnull)dataTrack publication:(TVIRemoteDataTrackPublication * _Nonnull)publication forParticipant:(TVIRemoteParticipant * _Nonnull)participant __attribute__((swift_name("didUnsubscribeFromDataTrack(dataTrack:publication:participant:)")));
+        [Export("didUnsubscribeFromDataTrack:publication:forParticipant:")]
+        public override void DidUnsubscribeFromDataTrack(TVIRemoteDataTrack dataTrack, TVIRemoteDataTrackPublication publication, TVIRemoteParticipant participant)
         {
-            LogHelper.Call(nameof(RemoteParticipantDelegate), nameof(UnsubscribedFromDataTrack));
-            UnsubscribedFromDataTrackEvent?.Invoke(this, (dataTrack, publication, participant));
+            Console.WriteLine("DidUnsubscribeFromDataTrack");
+            DidUnsubscribeFromDataTrackEvent?.Invoke(this, (dataTrack, publication, participant));
         }
 
+        // @optional -(void)remoteParticipant:(TVIRemoteParticipant * _Nonnull)participant networkQualityLevelDidChange:(TVINetworkQualityLevel)networkQualityLevel __attribute__((swift_name("remoteParticipantNetworkQualityLevelDidChange(participant:networkQualityLevel:)")));
+        [Export("remoteParticipant:networkQualityLevelDidChange:")]
+        public override void RemoteParticipantNetworkQualityLevelDidChange(TVIRemoteParticipant participant, TVINetworkQualityLevel networkQualityLevel)
+        {
+            Console.WriteLine("RemoteParticipantNetworkQualityLevelDidChange");
+            RemoteParticipantNetworkQualityLevelDidChangeEvent?.Invoke(this, (participant, networkQualityLevel));
+        }
+
+        // @optional -(void)remoteParticipant:(TVIRemoteParticipant * _Nonnull)participant switchedOffVideoTrack:(TVIRemoteVideoTrack * _Nonnull)track __attribute__((swift_name("remoteParticipantSwitchedOffVideoTrack(participant:track:)")));
+        [Export("remoteParticipant:switchedOffVideoTrack:")]
+        public override void RemoteParticipantSwitchedOffVideoTrack(TVIRemoteParticipant participant, TVIRemoteVideoTrack track)
+        {
+            Console.WriteLine("RemoteParticipantSwitchedOffVideoTrack");
+            RemoteParticipantSwitchedOffVideoTrackEvent?.Invoke(this, (participant, track));
+        }
+
+        // @optional -(void)remoteParticipant:(TVIRemoteParticipant * _Nonnull)participant switchedOnVideoTrack:(TVIRemoteVideoTrack * _Nonnull)track __attribute__((swift_name("remoteParticipantSwitchedOnVideoTrack(participant:track:)")));
+        [Export("remoteParticipant:switchedOnVideoTrack:")]
+        public override void RemoteParticipantSwitchedOnVideoTrack(TVIRemoteParticipant participant, TVIRemoteVideoTrack track)
+        {
+            Console.WriteLine("RemoteParticipantSwitchedOnVideoTrack");
+            RemoteParticipantSwitchedOnVideoTrackEvent?.Invoke(this, (participant, track));
+        }
+
+        // @optional -(void)remoteParticipant:(TVIRemoteParticipant * _Nonnull)participant didChangePublishPriority:(TVITrackPriority _Nonnull)priority forAudioTrack:(TVIRemoteAudioTrackPublication * _Nonnull)publication __attribute__((swift_name("remoteParticipantDidChangeAudioTrackPublishPriority(participant:priority:publication:)")));
+        [Export("remoteParticipant:didChangePublishPriority:forAudioTrack:")]
+        public override void RemoteParticipantDidChangePublishPriority(TVIRemoteParticipant participant, string priority, TVIRemoteAudioTrackPublication publication)
+        {
+            Console.WriteLine("RemoteParticipantDidChangePublishPriority");
+            RemoteParticipantDidChangePublishPriorityEvent?.Invoke(this, (participant, priority, publication));
+        }
+
+        // @optional -(void)remoteParticipant:(TVIRemoteParticipant * _Nonnull)participant didChangePublishPriority:(TVITrackPriority _Nonnull)priority forVideoTrack:(TVIRemoteVideoTrackPublication * _Nonnull)publication __attribute__((swift_name("remoteParticipantDidChangeVideoTrackPublishPriority(participant:priority:publication:)")));
+        [Export("remoteParticipant:didChangePublishPriority:forVideoTrack:")]
+        public override void RemoteParticipantDidChangePublishPriorityForVideoTrack(TVIRemoteParticipant participant, string priority, TVIRemoteVideoTrackPublication publication)
+        {
+            Console.WriteLine("RemoteParticipantDidChangePublishPriorityForVideoTrack");
+            RemoteParticipantDidChangePublishPriorityForVideoTrackEvent?.Invoke(this, (participant, priority, publication));
+        }
+
+        // @optional -(void)remoteParticipant:(TVIRemoteParticipant * _Nonnull)participant didChangePublishPriority:(TVITrackPriority _Nonnull)priority forDataTrack:(TVIRemoteDataTrackPublication * _Nonnull)publication __attribute__((swift_name("remoteParticipantDidChangeDataTrackPublishPriority(participant:priority:publication:)")));
+        [Export("remoteParticipant:didChangePublishPriority:forDataTrack:")]
+        public override void RemoteParticipantDidChangePublishPriorityForDataTrack(TVIRemoteParticipant participant, string priority, TVIRemoteDataTrackPublication publication)
+        {
+            Console.WriteLine("RemoteParticipantDidChangePublishPriorityForDataTrack");
+            RemoteParticipantDidChangePublishPriorityForDataTrackEvent?.Invoke(this, (participant, priority, publication));
+        }
         #endregion
     }
 }
