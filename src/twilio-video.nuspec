@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>Twilio.Video.XamarinBinding</id>
-    <version>4.4.0.0</version>
+    <version>4.4.0.1</version>
     <authors>twilio dkornev</authors>
     <owners>twilio</owners>
     <projectUrl>https://github.com/dkornev/TwilioVideoXamarinIOS</projectUrl>
@@ -14,13 +14,13 @@
     <copyright>Copyright 2021</copyright>
     <tags>twilio xamarin</tags>
     <dependencies>
-      <!-- <dependency id="SampleDependency" version="1.0" /> -->
+      <group targetFramework="Xamarin.iOS1.0">
+      </group>
     </dependencies>
   </metadata>
-    <!-- Optional 'files' node -->
     <files>
-        <!--iOS-->
-        <file src="bin/Release/Twilio.Video.iOS.dll" target="lib/Xamarin.iOS10/Twilio.Video.iOS.dll" />
-        <!--<file src="Twilio.Video.iOS/bin/Release/Twilio.Video.iOS.xml" target="lib/Xamarin.iOS10/Twilio.Video.iOS.xml" />-->
+        <file src="bin/Release/Twilio.Video.iOS.dll" target="lib/xamarinios10/Twilio.Video.iOS.dll" />
+        <file src="bin/Release/Twilio.Video.iOS.resources/**" target="content/Twilio.Video.iOS.resources" />
+        <file src="Twilio.Video.XamarinBinding.targets" target="build/Twilio.Video.XamarinBinding.targets" />
     </files>
 </package>
