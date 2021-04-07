@@ -40,20 +40,23 @@ namespace Twilio.Video.iOS
 	{
 		// CGAffineTransform TVIVideoOrientationMakeTransform (TVIVideoOrientation orientation) __attribute__((swift_name("VideoOrientation.makeTransform(orientation:)")));
 		[Introduced(PlatformName.iOS, 11, 0)]
-		[DllImport("__Internal")]
+		// [DllImport("__Internal")]
 		// [Verify (PlatformInvoke)]
+		[Export ("TVIVideoOrientationMakeTransform")]
 		static extern CGAffineTransform TVIVideoOrientationMakeTransform (TVIVideoOrientation orientation);
 
 		// BOOL TVIVideoOrientationIsRotated (TVIVideoOrientation orientation) __attribute__((swift_name("VideoOrientation.isRotated(orientation:)")));
 		[Introduced(PlatformName.iOS, 11, 0)]
-		[DllImport("__Internal")]
+		// [DllImport("__Internal")]
 		// [Verify (PlatformInvoke)]
+		[Export ("TVIVideoOrientationIsRotated")]
 		static extern bool TVIVideoOrientationIsRotated (TVIVideoOrientation orientation);
 
 		// BOOL TVIVideoOrientationIsValid (TVIVideoOrientation orientation) __attribute__((swift_name("VideoOrientation.isValid(orientation:)")));
 		[Introduced(PlatformName.iOS, 11, 0)]
-		[DllImport("__Internal")]
+		// [DllImport("__Internal")]
 		// [Verify (PlatformInvoke)]
+		[Export ("TVIVideoOrientationIsValid")]
 		static extern bool TVIVideoOrientationIsValid (TVIVideoOrientation orientation);
 
 		// extern void TVIAudioDeviceFormatChanged (TVIAudioDeviceContext _Nonnull context) __attribute__((availability(ios, introduced=11.0))) __attribute__((swift_name("AudioDeviceFormatChanged(context:)")));
