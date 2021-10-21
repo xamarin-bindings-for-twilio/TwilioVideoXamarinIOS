@@ -2,7 +2,7 @@
 using Foundation;
 using Twilio.Video.iOS;
 
-namespace LSP.Mobile.iOS.ViewController.Delegates.Video
+namespace Sample
 {
     public class RemoteParticipantDelegate : TVIRemoteParticipantDelegate
     {
@@ -53,7 +53,7 @@ namespace LSP.Mobile.iOS.ViewController.Delegates.Video
         public event EventHandler<(TVIRemoteParticipant participant, TVINetworkQualityLevel networkQualityLevel)> RemoteParticipantNetworkQualityLevelDidChangeEvent;
         public event EventHandler<(TVIRemoteParticipant participant, TVIRemoteVideoTrack track)> RemoteParticipantSwitchedOffVideoTrackEvent;
         public event EventHandler<(TVIRemoteParticipant participant, TVIRemoteVideoTrack track)> RemoteParticipantSwitchedOnVideoTrackEvent;
-        public event EventHandler<(TVIRemoteParticipant participant, string priority, TVIRemoteAudioTrackPublication publication)> RemoteParticipantDidChangePublishPriorityEvent;
+        public event EventHandler<(TVIRemoteParticipant participant, string priority, TVIRemoteAudioTrackPublication publication)> RemoteParticipantDidChangePublishPriorityForAudioTrackEvent;
         public event EventHandler<(TVIRemoteParticipant participant, string priority, TVIRemoteVideoTrackPublication publication)> RemoteParticipantDidChangePublishPriorityForVideoTrackEvent;
         public event EventHandler<(TVIRemoteParticipant participant, string priority, TVIRemoteDataTrackPublication publication)> RemoteParticipantDidChangePublishPriorityForDataTrackEvent;
 
@@ -238,10 +238,10 @@ namespace LSP.Mobile.iOS.ViewController.Delegates.Video
 
         // @optional -(void)remoteParticipant:(TVIRemoteParticipant * _Nonnull)participant didChangePublishPriority:(TVITrackPriority _Nonnull)priority forAudioTrack:(TVIRemoteAudioTrackPublication * _Nonnull)publication __attribute__((swift_name("remoteParticipantDidChangeAudioTrackPublishPriority(participant:priority:publication:)")));
         [Export("remoteParticipant:didChangePublishPriority:forAudioTrack:")]
-        public override void RemoteParticipantDidChangePublishPriority(TVIRemoteParticipant participant, string priority, TVIRemoteAudioTrackPublication publication)
+        public void RemoteParticipantDidChangePublishPriorityForAudioTrack(TVIRemoteParticipant participant, string priority, TVIRemoteAudioTrackPublication publication)
         {
-            Console.WriteLine("RemoteParticipantDidChangePublishPriority");
-            RemoteParticipantDidChangePublishPriorityEvent?.Invoke(this, (participant, priority, publication));
+            Console.WriteLine("RemoteParticipantDidChangePublishPriorityForAudioTrack");
+            RemoteParticipantDidChangePublishPriorityForAudioTrackEvent?.Invoke(this, (participant, priority, publication));
         }
 
         // @optional -(void)remoteParticipant:(TVIRemoteParticipant * _Nonnull)participant didChangePublishPriority:(TVITrackPriority _Nonnull)priority forVideoTrack:(TVIRemoteVideoTrackPublication * _Nonnull)publication __attribute__((swift_name("remoteParticipantDidChangeVideoTrackPublishPriority(participant:priority:publication:)")));
