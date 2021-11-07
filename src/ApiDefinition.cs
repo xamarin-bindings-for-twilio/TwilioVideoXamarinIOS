@@ -2447,22 +2447,22 @@ namespace Twilio.Video.iOS
 		NSString TVITrackSwitchOffModeDetected { get; }
 
 		// extern TVIClientTrackSwitchOffControl  _Nonnull const TVIClientTrackSwitchOffControlAuto __attribute__((availability(ios, introduced=11.0)));
-		[iOS (11, 0)]
+		[Introduced(PlatformName.iOS, 11, 0)]
 		[Field ("TVIClientTrackSwitchOffControlAuto", "__Internal")]
 		NSString TVIClientTrackSwitchOffControlAuto { get; }
 
 		// extern TVIClientTrackSwitchOffControl  _Nonnull const TVIClientTrackSwitchOffControlManual __attribute__((availability(ios, introduced=11.0)));
-		[iOS (11, 0)]
+		[Introduced(PlatformName.iOS, 11, 0)]
 		[Field ("TVIClientTrackSwitchOffControlManual", "__Internal")]
 		NSString TVIClientTrackSwitchOffControlManual { get; }
 
 		// extern TVIVideoContentPreferencesMode  _Nonnull const TVIVideoContentPreferencesModeAuto __attribute__((availability(ios, introduced=11.0)));
-		[iOS (11, 0)]
+		[Introduced(PlatformName.iOS, 11, 0)]
 		[Field ("TVIVideoContentPreferencesModeAuto", "__Internal")]
 		NSString TVIVideoContentPreferencesModeAuto { get; }
 
 		// extern TVIVideoContentPreferencesMode  _Nonnull const TVIVideoContentPreferencesModeManual __attribute__((availability(ios, introduced=11)));
-		[iOS (11, 0)]
+		[Introduced(PlatformName.iOS, 11, 0)]
 		[Field ("TVIVideoContentPreferencesModeManual", "__Internal")]
 		NSString TVIVideoContentPreferencesModeManual { get; }
 	}
@@ -2592,7 +2592,7 @@ namespace Twilio.Video.iOS
 	}
 
 	// @interface TVIVideoContentPreferencesBuilder : NSObject
-	[iOS (11,0)]
+	[Introduced(PlatformName.iOS, 11, 0)]
 	[BaseType (typeof(NSObject))]
 	[DisableDefaultCtor]
 	interface TVIVideoContentPreferencesBuilder
@@ -2606,7 +2606,7 @@ namespace Twilio.Video.iOS
 	delegate void TVIVideoContentPreferencesBuilderBlock (TVIVideoContentPreferencesBuilder arg0);
 
 	// @interface TVIVideoContentPreferences : NSObject
-	[iOS (11,0)]
+	[Introduced(PlatformName.iOS, 11, 0)]
 	[BaseType (typeof(NSObject))]
 	[DisableDefaultCtor]
 	interface TVIVideoContentPreferences
