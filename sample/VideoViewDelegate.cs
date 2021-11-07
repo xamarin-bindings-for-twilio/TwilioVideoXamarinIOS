@@ -3,7 +3,7 @@ using CoreMedia;
 using Foundation;
 using Twilio.Video.iOS;
 
-namespace LSP.Mobile.iOS.ViewController.Delegates.Video
+namespace Sample
 {
     public class VideoViewDelegate : TVIVideoViewDelegate
     {
@@ -50,15 +50,15 @@ namespace LSP.Mobile.iOS.ViewController.Delegates.Video
 
         // @optional -(void)videoView:(TVIVideoView * _Nonnull)view videoDimensionsDidChange:(CMVideoDimensions)dimensions;
         [Export("videoView:videoDimensionsDidChange:")]
-        public override void VideoView(TVIVideoView view, CMVideoDimensions dimensions)
+        public override void VideoViewVideoDimensionsDidChange(TVIVideoView view, CMVideoDimensions dimensions)
         {
-            Console.WriteLine("VideoView");
+            Console.WriteLine("VideoViewVideoDimensionsDidChange");
             VideoDimensionsDidChangeEvent?.Invoke(this, (view, dimensions));
         }
 
         // @optional -(void)videoView:(TVIVideoView * _Nonnull)view videoOrientationDidChange:(TVIVideoOrientation)orientation;
         [Export("videoView:videoOrientationDidChange:")]
-        public override void VideoView(TVIVideoView view, TVIVideoOrientation orientation)
+        public override void VideoViewVideoOrientationDidChange(TVIVideoView view, TVIVideoOrientation orientation)
         {
             Console.WriteLine("VideoView");
             VideoOrientationDidChangeEvent?.Invoke(this, (view, orientation));

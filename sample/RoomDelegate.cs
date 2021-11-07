@@ -2,7 +2,7 @@
 using Foundation;
 using Twilio.Video.iOS;
 
-namespace LSP.Mobile.iOS.ViewController.Delegates.Video
+namespace Sample
 {
     public class RoomDelegate : TVIRoomDelegate
     {
