@@ -238,7 +238,7 @@ namespace Sample
 
         // @optional -(void)remoteParticipant:(TVIRemoteParticipant * _Nonnull)participant didChangePublishPriority:(TVITrackPriority _Nonnull)priority forAudioTrack:(TVIRemoteAudioTrackPublication * _Nonnull)publication __attribute__((swift_name("remoteParticipantDidChangeAudioTrackPublishPriority(participant:priority:publication:)")));
         [Export("remoteParticipant:didChangePublishPriority:forAudioTrack:")]
-        public void RemoteParticipantDidChangePublishPriorityForAudioTrack(TVIRemoteParticipant participant, string priority, TVIRemoteAudioTrackPublication publication)
+        public override void RemoteParticipantDidChangePublishPriorityForAudioTrack(TVIRemoteParticipant participant, string priority, TVIRemoteAudioTrackPublication publication)
         {
             Console.WriteLine("RemoteParticipantDidChangePublishPriorityForAudioTrack");
             RemoteParticipantDidChangePublishPriorityForAudioTrackEvent?.Invoke(this, (participant, priority, publication));

@@ -50,7 +50,7 @@ namespace Sample
 
         // @optional -(void)videoView:(TVIVideoView * _Nonnull)view videoDimensionsDidChange:(CMVideoDimensions)dimensions;
         [Export("videoView:videoDimensionsDidChange:")]
-        public void VideoViewVideoDimensionsDidChange(TVIVideoView view, CMVideoDimensions dimensions)
+        public override void VideoViewVideoDimensionsDidChange(TVIVideoView view, CMVideoDimensions dimensions)
         {
             Console.WriteLine("VideoViewVideoDimensionsDidChange");
             VideoDimensionsDidChangeEvent?.Invoke(this, (view, dimensions));
@@ -58,7 +58,7 @@ namespace Sample
 
         // @optional -(void)videoView:(TVIVideoView * _Nonnull)view videoOrientationDidChange:(TVIVideoOrientation)orientation;
         [Export("videoView:videoOrientationDidChange:")]
-        public void VideoViewVideoOrientationDidChange(TVIVideoView view, TVIVideoOrientation orientation)
+        public override void VideoViewVideoOrientationDidChange(TVIVideoView view, TVIVideoOrientation orientation)
         {
             Console.WriteLine("VideoView");
             VideoOrientationDidChangeEvent?.Invoke(this, (view, orientation));
