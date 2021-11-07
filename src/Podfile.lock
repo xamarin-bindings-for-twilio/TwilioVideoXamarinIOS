@@ -1,16 +1,16 @@
 PODS:
-  - TwilioVideo (4.4.0)
+  - TwilioVideo (4.6.2)
 
 DEPENDENCIES:
-  - TwilioVideo (= 4.4.0)
+  - TwilioVideo (= 4.6.2)
 
 SPEC REPOS:
   trunk:
     - TwilioVideo
 
 SPEC CHECKSUMS:
-  TwilioVideo: fcf10b7460e582570887d194b73e75425685d813
+  TwilioVideo: f8c75425bce3f41912bb24352154b0502d89a9b3
 
-PODFILE CHECKSUM: b417e1a15dc2d24d49e838caf37f4bbd6442668a
+PODFILE CHECKSUM: 79d97c4534d6ed2fc1674c5fa79626b44afa98a6
 
-COCOAPODS: 1.10.1
+COCOAPODS: 1.10.2

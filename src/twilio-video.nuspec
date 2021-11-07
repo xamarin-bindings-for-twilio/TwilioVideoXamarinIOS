@@ -2,10 +2,10 @@
 <package >
   <metadata>
     <id>Twilio.Video.XamarinBinding</id>
-    <version>4.4.0.2</version>
+    <version>4.6.2.0</version>
     <authors>twilio dkornev</authors>
     <owners>twilio</owners>
-    <projectUrl>https://github.com/dkornev/TwilioVideoXamarinIOS</projectUrl>
+    <projectUrl>https://github.com/xamarin-bindings-for-twilio/TwilioVideoXamarinIOS</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <title>Twilio Video iOS SDK</title>
     <summary>Twilio Video iOS SDK binding for Xamarin iOS</summary>

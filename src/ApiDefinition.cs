@@ -2198,6 +2198,18 @@ namespace Twilio.Video.iOS
 		// @property (copy, nonatomic) TVITrackPriority _Nullable priority;
 		[NullAllowed, Export ("priority")]
 		string Priority { get; set; }
+
+		// -(void)switchOff;
+		[Export ("switchOff")]
+		void SwitchOff ();
+
+		// -(void)switchOn;
+		[Export ("switchOn")]
+		void SwitchOn ();
+
+		// -(void)setContentPreferences:(TVIVideoContentPreferences * _Nonnull)contentPreferences;
+		[Export ("setContentPreferences:")]
+		void SetContentPreferences (TVIVideoContentPreferences contentPreferences);
 	}
 
 	// @interface TVIRemoteVideoTrackPublication : TVIVideoTrackPublication
@@ -2433,6 +2445,26 @@ namespace Twilio.Video.iOS
 		[Introduced (PlatformName.iOS, 11, 0)]
 		[Field ("TVITrackSwitchOffModeDetected", "__Internal")]
 		NSString TVITrackSwitchOffModeDetected { get; }
+
+		// extern TVIClientTrackSwitchOffControl  _Nonnull const TVIClientTrackSwitchOffControlAuto __attribute__((availability(ios, introduced=11.0)));
+		[iOS (11, 0)]
+		[Field ("TVIClientTrackSwitchOffControlAuto", "__Internal")]
+		NSString TVIClientTrackSwitchOffControlAuto { get; }
+
+		// extern TVIClientTrackSwitchOffControl  _Nonnull const TVIClientTrackSwitchOffControlManual __attribute__((availability(ios, introduced=11.0)));
+		[iOS (11, 0)]
+		[Field ("TVIClientTrackSwitchOffControlManual", "__Internal")]
+		NSString TVIClientTrackSwitchOffControlManual { get; }
+
+		// extern TVIVideoContentPreferencesMode  _Nonnull const TVIVideoContentPreferencesModeAuto __attribute__((availability(ios, introduced=11.0)));
+		[iOS (11, 0)]
+		[Field ("TVIVideoContentPreferencesModeAuto", "__Internal")]
+		NSString TVIVideoContentPreferencesModeAuto { get; }
+
+		// extern TVIVideoContentPreferencesMode  _Nonnull const TVIVideoContentPreferencesModeManual __attribute__((availability(ios, introduced=11)));
+		[iOS (11, 0)]
+		[Field ("TVIVideoContentPreferencesModeManual", "__Internal")]
+		NSString TVIVideoContentPreferencesModeManual { get; }
 	}
 
 	// @interface TVIVideoDimensions : NSObject
@@ -2479,6 +2511,14 @@ namespace Twilio.Video.iOS
 	[DisableDefaultCtor]
 	interface TVIVideoBandwidthProfileOptionsBuilder
 	{
+		// @property (copy, nonatomic) TVIClientTrackSwitchOffControl _Nullable clientTrackSwitchOffControl;
+		[NullAllowed, Export ("clientTrackSwitchOffControl")]
+		string ClientTrackSwitchOffControl { get; set; }
+
+		// @property (copy, nonatomic) TVIVideoContentPreferencesMode _Nullable contentPreferencesMode;
+		[NullAllowed, Export ("contentPreferencesMode")]
+		string ContentPreferencesMode { get; set; }
+
 		// @property (copy, nonatomic) TVITrackPriority _Nullable dominantSpeakerPriority;
 		[NullAllowed, Export ("dominantSpeakerPriority")]
 		string DominantSpeakerPriority { get; set; }
@@ -2487,7 +2527,7 @@ namespace Twilio.Video.iOS
 		[NullAllowed, Export ("maxSubscriptionBitrate", ArgumentSemantic.Strong)]
 		NSNumber MaxSubscriptionBitrate { get; set; }
 
-		// @property (nonatomic, strong) NSNumber * _Nullable maxTracks;
+		// @property (nonatomic, strong) NSNumber * _Nullable maxTracks __attribute__((deprecated("Use the `clientTrackSwitchOffControl` property instead of `maxTracks`.")));
 		[NullAllowed, Export ("maxTracks", ArgumentSemantic.Strong)]
 		NSNumber MaxTracks { get; set; }
 
@@ -2495,7 +2535,7 @@ namespace Twilio.Video.iOS
 		[NullAllowed, Export ("mode")]
 		string Mode { get; set; }
 
-		// @property (nonatomic, strong) TVIVideoRenderDimensions * _Nullable renderDimensions;
+		// @property (nonatomic, strong) TVIVideoRenderDimensions * _Nullable renderDimensions __attribute__((deprecated("Use the `contentPreferencesMode` property instead of `renderDimensions`.")));
 		[NullAllowed, Export ("renderDimensions", ArgumentSemantic.Strong)]
 		TVIVideoRenderDimensions RenderDimensions { get; set; }
 
@@ -2513,6 +2553,14 @@ namespace Twilio.Video.iOS
 	[DisableDefaultCtor]
 	interface TVIVideoBandwidthProfileOptions
 	{
+		// @property (readonly, copy, nonatomic) TVIClientTrackSwitchOffControl _Nonnull clientTrackSwitchOffControl;
+		[Export ("clientTrackSwitchOffControl")]
+		string ClientTrackSwitchOffControl { get; }
+
+		// @property (readonly, copy, nonatomic) TVIVideoContentPreferencesMode _Nonnull contentPreferencesMode;
+		[Export ("contentPreferencesMode")]
+		string ContentPreferencesMode { get; }
+
 		// @property (readonly, copy, nonatomic) TVITrackPriority _Nullable dominantSpeakerPriority;
 		[NullAllowed, Export ("dominantSpeakerPriority")]
 		string DominantSpeakerPriority { get; }
@@ -2521,7 +2569,7 @@ namespace Twilio.Video.iOS
 		[NullAllowed, Export ("maxSubscriptionBitrate", ArgumentSemantic.Strong)]
 		NSNumber MaxSubscriptionBitrate { get; }
 
-		// @property (readonly, nonatomic, strong) NSNumber * _Nullable maxTracks;
+		// @property (readonly, nonatomic, strong) NSNumber * _Nullable maxTracks __attribute__((deprecated("Use the `clientTrackSwitchOffControl` property instead of `maxTracks`.")));
 		[NullAllowed, Export ("maxTracks", ArgumentSemantic.Strong)]
 		NSNumber MaxTracks { get; }
 
@@ -2529,7 +2577,7 @@ namespace Twilio.Video.iOS
 		[NullAllowed, Export ("mode")]
 		string Mode { get; }
 
-		// @property (readonly, nonatomic, strong) TVIVideoRenderDimensions * _Nullable renderDimensions;
+		// @property (readonly, nonatomic, strong) TVIVideoRenderDimensions * _Nullable renderDimensions __attribute__((deprecated("Use the `contentPreferencesMode` property instead of `renderDimensions`.")));
 		[NullAllowed, Export ("renderDimensions", ArgumentSemantic.Strong)]
 		TVIVideoRenderDimensions RenderDimensions { get; }
 
@@ -2541,6 +2589,36 @@ namespace Twilio.Video.iOS
 		[Static]
 		[Export ("optionsWithBlock:")]
 		TVIVideoBandwidthProfileOptions OptionsWithBlock (TVIVideoBandwidthProfileOptionsBuilderBlock block);
+	}
+
+	// @interface TVIVideoContentPreferencesBuilder : NSObject
+	[iOS (11,0)]
+	[BaseType (typeof(NSObject))]
+	[DisableDefaultCtor]
+	interface TVIVideoContentPreferencesBuilder
+	{
+		// @property (nonatomic, strong) TVIVideoDimensions * _Nullable renderDimensions;
+		[NullAllowed, Export ("renderDimensions", ArgumentSemantic.Strong)]
+		TVIVideoDimensions RenderDimensions { get; set; }
+	}
+
+	// typedef void (^TVIVideoContentPreferencesBuilderBlock)(TVIVideoContentPreferencesBuilder * _Nonnull);
+	delegate void TVIVideoContentPreferencesBuilderBlock (TVIVideoContentPreferencesBuilder arg0);
+
+	// @interface TVIVideoContentPreferences : NSObject
+	[iOS (11,0)]
+	[BaseType (typeof(NSObject))]
+	[DisableDefaultCtor]
+	interface TVIVideoContentPreferences
+	{
+		// @property (readonly, nonatomic, strong) TVIVideoDimensions * _Nullable renderDimensions;
+		[NullAllowed, Export ("renderDimensions", ArgumentSemantic.Strong)]
+		TVIVideoDimensions RenderDimensions { get; }
+
+		// +(instancetype _Null_unspecified)preferencesWithBlock:(TVIVideoContentPreferencesBuilderBlock _Nonnull)block;
+		[Static]
+		[Export ("preferencesWithBlock:")]
+		TVIVideoContentPreferences PreferencesWithBlock (TVIVideoContentPreferencesBuilderBlock block);
 	}
 
 	// @protocol TVIVideoRenderer <NSObject>
