@@ -160,6 +160,8 @@ namespace Twilio.Video.iOS
 		RoomAccountLimitExceededError = 53119,
 		RoomInvalidRecordingRuleError = 53120,
 		RoomRecordingOperationNotSupportedError = 53122,
+		RoomAudioOnlyFlagNotSupportedError = 53124,
+		RoomTrackKindNotSupportedError = 53125,
 		ParticipantIdentityInvalidError = 53200,
 		ParticipantIdentityTooLongError = 53201,
 		ParticipantIdentityCharsInvalidError = 53202,
