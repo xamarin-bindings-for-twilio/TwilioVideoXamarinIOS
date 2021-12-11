@@ -6,4 +6,4 @@ target 'ObjectiveSharpieIntegration' do
   use_frameworks!
 end
 
-pod 'TwilioVideo', '4.6.2'
+pod 'TwilioVideo', '4.6.3'

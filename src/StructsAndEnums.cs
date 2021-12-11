@@ -171,6 +171,7 @@ namespace Twilio.Video.iOS
 		ParticipantAccountLimitExceededError = 53206,
 		ParticipantMaxPublishedTracksOutOfRangeError = 53207,
 		ParticipantInvalidSubscribeRuleError = 53215,
+		ParticipantSessionLengthExceededError = 53216,
 		TrackInvalidError = 53300,
 		TrackNameInvalidError = 53301,
 		TrackNameTooLongError = 53302,
