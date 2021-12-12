@@ -4,12 +4,12 @@ Twilio Video iOS SDK binding for Xamarin
 
 [![NuGet][nuget-img]][nuget-link]
 
-[nuget-img]: https://img.shields.io/badge/nuget-4.6.2-blue.svg
+[nuget-img]: https://img.shields.io/badge/nuget-4.6.3-blue.svg
 [nuget-link]: https://www.nuget.org/packages/Twilio.Video.XamarinBinding
 
 ## How to Build
 
-### Twilio.Video iOS 4.6.2 (November 5, 2021)
+### Twilio.Video iOS 4.6.3 (December 10, 2021)
 ```
 sh bootstrapper.sh
 ```
