@@ -39,46 +39,39 @@ namespace Twilio.Video.iOS
 	static class CFunctions
 	{
 		// CGAffineTransform TVIVideoOrientationMakeTransform (TVIVideoOrientation orientation) __attribute__((swift_name("VideoOrientation.makeTransform(orientation:)")));
-		[Introduced(PlatformName.iOS, 11, 0)]
 		// [DllImport("__Internal")]
 		// [Verify (PlatformInvoke)]
 		[Export ("TVIVideoOrientationMakeTransform")]
 		static extern CGAffineTransform TVIVideoOrientationMakeTransform (TVIVideoOrientation orientation);
 
 		// BOOL TVIVideoOrientationIsRotated (TVIVideoOrientation orientation) __attribute__((swift_name("VideoOrientation.isRotated(orientation:)")));
-		[Introduced(PlatformName.iOS, 11, 0)]
 		// [DllImport("__Internal")]
 		// [Verify (PlatformInvoke)]
 		[Export ("TVIVideoOrientationIsRotated")]
 		static extern bool TVIVideoOrientationIsRotated (TVIVideoOrientation orientation);
 
 		// BOOL TVIVideoOrientationIsValid (TVIVideoOrientation orientation) __attribute__((swift_name("VideoOrientation.isValid(orientation:)")));
-		[Introduced(PlatformName.iOS, 11, 0)]
 		// [DllImport("__Internal")]
 		// [Verify (PlatformInvoke)]
 		[Export ("TVIVideoOrientationIsValid")]
 		static extern bool TVIVideoOrientationIsValid (TVIVideoOrientation orientation);
 
-		// extern void TVIAudioDeviceFormatChanged (TVIAudioDeviceContext _Nonnull context) __attribute__((availability(ios, introduced=11.0))) __attribute__((swift_name("AudioDeviceFormatChanged(context:)")));
-		[Introduced(PlatformName.iOS, 11, 0)]
+		// extern void TVIAudioDeviceFormatChanged (TVIAudioDeviceContext _Nonnull context) __attribute__((swift_name("AudioDeviceFormatChanged(context:)")));
 		[DllImport ("__Internal")]
 		// [Verify (PlatformInvoke)]
 		static extern unsafe void TVIAudioDeviceFormatChanged (void* context);
 
-		// extern void TVIAudioDeviceWriteCaptureData (TVIAudioDeviceContext _Nonnull context, int8_t * _Nonnull data, size_t sizeInBytes) __attribute__((availability(ios, introduced=11.0))) __attribute__((swift_name("AudioDeviceWriteCaptureData(context:data:sizeInBytes:)")));
-		[Introduced(PlatformName.iOS, 11, 0)]
+		// extern void TVIAudioDeviceWriteCaptureData (TVIAudioDeviceContext _Nonnull context, int8_t * _Nonnull data, size_t sizeInBytes) __attribute__((swift_name("AudioDeviceWriteCaptureData(context:data:sizeInBytes:)")));
 		[DllImport ("__Internal")]
 		// [Verify (PlatformInvoke)]
 		static extern unsafe void TVIAudioDeviceWriteCaptureData (void* context, sbyte* data, nuint sizeInBytes);
 
-		// extern void TVIAudioDeviceReadRenderData (TVIAudioDeviceContext _Nonnull context, int8_t * _Nonnull data, size_t sizeInBytes) __attribute__((availability(ios, introduced=11.0))) __attribute__((swift_name("AudioDeviceReadRenderData(context:data:sizeInBytes:)")));
-		[Introduced(PlatformName.iOS, 11, 0)]
+		// extern void TVIAudioDeviceReadRenderData (TVIAudioDeviceContext _Nonnull context, int8_t * _Nonnull data, size_t sizeInBytes) __attribute__((swift_name("AudioDeviceReadRenderData(context:data:sizeInBytes:)")));
 		[DllImport ("__Internal")]
 		// [Verify (PlatformInvoke)]
 		static extern unsafe void TVIAudioDeviceReadRenderData (void* context, sbyte* data, nuint sizeInBytes);
 
-		// extern void TVIAudioDeviceExecuteWorkerBlock (TVIAudioDeviceContext _Nonnull context, TVIAudioDeviceWorkerBlock _Nonnull block) __attribute__((availability(ios, introduced=11.0))) __attribute__((swift_name("AudioDeviceExecuteWorkerBlock(context:block:)")));
-		[Introduced(PlatformName.iOS, 11, 0)]
+		// extern void TVIAudioDeviceExecuteWorkerBlock (TVIAudioDeviceContext _Nonnull context, TVIAudioDeviceWorkerBlock _Nonnull block) __attribute__((swift_name("AudioDeviceExecuteWorkerBlock(context:block:)")));
 		[DllImport ("__Internal")]
 		// [Verify (PlatformInvoke)]
 		static extern unsafe void TVIAudioDeviceExecuteWorkerBlock (void* context, TVIAudioDeviceWorkerBlock block);
