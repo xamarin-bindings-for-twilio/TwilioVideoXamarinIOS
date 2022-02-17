@@ -9,7 +9,7 @@ Twilio Video iOS SDK binding for Xamarin
 
 ## How to Build
 
-### Twilio.Video iOS 5.0.0 (February 11, 2022)
+### Twilio.Video iOS 5.0.0 (February 14, 2022)
 ```
 sh bootstrapper.sh
 ```
