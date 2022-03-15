@@ -820,6 +820,14 @@ namespace Twilio.Video.iOS
 		string Name { get; }
 	}
 
+	[Static]
+	partial interface Constants
+	{
+		// extern TVIVideoEncodingMode  _Nonnull const TVIVideoEncodingModeAuto __attribute__((availability(ios, introduced=11.0)));
+		[Field ("TVIVideoEncodingModeAuto", "__Internal")]
+		NSString TVIVideoEncodingModeAuto { get; }
+	}
+
 	// @interface TVIConnectOptionsBuilder : NSObject
 	[BaseType (typeof(NSObject))]
 	[DisableDefaultCtor]
@@ -884,6 +892,10 @@ namespace Twilio.Video.iOS
 		// @property (copy, nonatomic) NSString * _Nullable roomName;
 		[NullAllowed, Export ("roomName")]
 		string RoomName { get; set; }
+
+		// @property (copy, nonatomic) TVIVideoEncodingMode _Nullable videoEncodingMode;
+		[NullAllowed, Export ("videoEncodingMode")]
+		string VideoEncodingMode { get; set; }
 
 		// @property (copy, nonatomic) NSArray<TVILocalVideoTrack *> * _Nonnull videoTracks;
 		[Export ("videoTracks", ArgumentSemantic.Copy)]
@@ -978,6 +990,10 @@ namespace Twilio.Video.iOS
 		// @property (readonly, copy, nonatomic) NSString * _Nullable roomName;
 		[NullAllowed, Export ("roomName")]
 		string RoomName { get; }
+
+		// @property (readonly, copy, nonatomic) TVIVideoEncodingMode _Nullable videoEncodingMode;
+		[NullAllowed, Export ("videoEncodingMode")]
+		string VideoEncodingMode { get; }
 
 		// @property (readonly, copy, nonatomic) NSArray<TVILocalVideoTrack *> * _Nonnull videoTracks;
 		[Export ("videoTracks", ArgumentSemantic.Copy)]
